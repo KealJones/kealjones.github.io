@@ -80,12 +80,14 @@ html[data-style="clean"] .tagline {
 html[data-style="clean"] .links { justify-content: center; align-items: center; gap: 1rem 1.1rem; margin-block-start: .5rem; }
 html[data-style="clean"] .links a {
   display: inline-block; text-decoration: none; font-weight: 700; line-height: 1.1;
-  transition: transform .15s ease-out;
+  transition: transform .35s cubic-bezier(.34, 1.8, .5, 1);
   box-shadow: 4px 5px 0 rgba(0,0,0,.22);
 }
 html[data-style="clean"] .links li:nth-child(odd) a { transform: rotate(-3deg); }
 html[data-style="clean"] .links li:nth-child(even) a { transform: rotate(2.5deg); }
-html[data-style="clean"] .links a:hover { transform: rotate(0deg) translateY(-3px); }
+/* On hover or focus, each sign swings the other way, like it caught a breeze */
+html[data-style="clean"] .links li:nth-child(odd) a:is(:hover, :focus-visible) { transform: rotate(2deg) translateY(-3px); }
+html[data-style="clean"] .links li:nth-child(even) a:is(:hover, :focus-visible) { transform: rotate(-2.5deg) translateY(-3px); }
 
 /* Changeable-letter marquee board */
 html[data-style="clean"] [data-sign="letterboard"] {
