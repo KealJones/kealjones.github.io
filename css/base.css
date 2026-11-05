@@ -3,7 +3,9 @@
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; overflow-wrap: break-word; }
 img, svg { max-inline-size: 100%; }
-h1, h2, h3 { overflow-wrap: anywhere; }
+h1, h2, h3 { overflow-wrap: anywhere; text-wrap: balance; }
+.tagline { text-wrap: balance; }
+p { text-wrap: pretty; }
 p { margin: 0 0 .6rem; }
 .entry p:last-child, .panel > p:last-child { margin-block-end: 0; }
 
