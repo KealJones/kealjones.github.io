@@ -3,10 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Keal Jones</title>
+<title>~*~ Keal Jones ~*~</title>
 <meta name="description" content="Keal Jones builds design systems, frontend platforms and AI agents. Senior software engineer in Phoenix, AZ.">
-<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000033">
 <meta property="og:title" content="Keal Jones">
 <meta property="og:description" content="I build the foundations other engineers build on: design systems, frontend platforms and, lately, AI agents.">
 <meta property="og:url" content="https://kealjones.com/">
@@ -14,242 +13,251 @@
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Limelight&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 <style>
-  /* A silent-cartoon title card: one ink, one paper, double rules. */
   :root {
-    --paper: #ffffff;
+    --space: #000033;
+    --silver: #c0c0c0;
+    --hi: #ffffff;
+    --lo: #808080;
+    --dark: #404040;
     --ink: #000000;
-    --soft: #4d4d4d;
-    --link: #000000;
-    --mark: #ffd23f;
-    color-scheme: light dark;
+    --link: #0000ee;
+    --visited: #551a8b;
+    --title: #000080;
+    --lime: #00ff66;
+    --yellow: #ffdd00;
+    color-scheme: only light;
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --paper: #000000; --ink: #ffffff; --soft: #b5b5b5; --link: #ffffff; }
-  }
-  :root[data-theme="dark"] { --paper: #000000; --ink: #ffffff; --soft: #b5b5b5; --link: #ffffff; }
-
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
-    background: var(--paper);
     color: var(--ink);
-    font: 400 1.0625rem/1.7 "Libre Caslon Text", Georgia, serif;
-    font-variant-numeric: oldstyle-nums proportional-nums;
+    font: 400 1.125rem/1.55 "Times New Roman", Times, serif;
     overflow-wrap: break-word;
+    background-color: var(--space);
+    /* a hand-tiled starfield, no image needed */
+    background-image:
+      radial-gradient(1px 1px at 12px 18px, #fff 99%, transparent),
+      radial-gradient(1px 1px at 61px 44px, #cfe8ff 99%, transparent),
+      radial-gradient(2px 2px at 95px 9px, #fff 99%, transparent),
+      radial-gradient(1px 1px at 33px 87px, #fff 99%, transparent),
+      radial-gradient(1px 1px at 118px 71px, #ffe9a8 99%, transparent),
+      radial-gradient(2px 2px at 78px 112px, #cfe8ff 99%, transparent);
+    background-size: 128px 128px;
   }
-  ::selection { background: var(--mark); color: #000; }
-  a { color: var(--link); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
-  a:hover { text-decoration-thickness: 2px; }
-  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; box-shadow: 0 0 0 7px var(--mark); }
+  a { color: var(--link); }
+  a:visited { color: var(--visited); }
+  :focus-visible { outline: 3px dashed var(--ink); outline-offset: 2px; background: var(--yellow); color: #000; }
+  h1, h2, .btn88, .bar-title { font-family: "Press Start 2P", "Courier New", monospace; }
 
-  .wrap { max-inline-size: 60rem; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 3rem); }
+  .page { max-inline-size: 52rem; margin-inline: auto; padding: 1rem clamp(.5rem, 3vw, 1.5rem) 2rem; }
 
-  /* The title card */
-  .card {
-    margin-block: clamp(1.25rem, 5vw, 3rem) 0;
-    border: 6px double var(--ink);
-    padding: 5px;
+  /* Scrolling welcome, with a pause button (WCAG 2.2.2) */
+  .ticker { display: flex; align-items: center; gap: .5rem; margin-block-end: 1rem; }
+  .marquee {
+    flex: 1; min-inline-size: 0; overflow: hidden; white-space: nowrap;
+    color: var(--lime); background: #000; border: 2px inset var(--lo);
+    font-family: "VT323", monospace; font-size: 1.5rem; line-height: 1.6;
   }
-  .card-inner {
-    border: 1px solid var(--ink);
-    padding: clamp(2rem, 7vw, 4.5rem) clamp(1rem, 5vw, 3rem);
-    text-align: center;
-    position: relative;
-  }
-  /* Corner stars, as on old intertitles */
-  .card-inner::before, .card-inner::after {
-    content: "\2726";
-    position: absolute;
-    inset-block-start: .5rem;
-    font-size: 1rem;
-    line-height: 1;
-  }
-  .card-inner::before { inset-inline-start: .65rem; }
-  .card-inner::after { inset-inline-end: .65rem; }
+  .marquee span { display: inline-block; padding-inline-start: 100%; animation: scroll 18s linear infinite; }
+  .paused .marquee span, .paused .bob, .paused .blink { animation-play-state: paused; }
+  @keyframes scroll { to { transform: translateX(-100%); } }
 
-  .mark-btn { all: unset; cursor: pointer; display: block; margin: 0 auto 1.75rem; inline-size: clamp(8rem, 26vw, 12rem); max-inline-size: 100%; border-radius: 50%; }
-  .mark-btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 6px; box-shadow: 0 0 0 12px var(--mark); }
-  .mark { inline-size: 100%; block-size: auto; display: block; color: var(--ink); }
-  .mark .wink { transition: transform .14s ease-in; transform-origin: 52.5px 36px; }
-  .mark .open { opacity: 0; transition: opacity .1s ease-in; }
-  .mark-btn.blink .wink { transform: scaleX(.2); }
-  .mark-btn.blink .open { opacity: 1; }
+  /* Beveled Win9x controls */
+  .bevel { background: var(--silver); border: 2px solid; border-color: var(--hi) var(--dark) var(--dark) var(--hi); box-shadow: inset -1px -1px var(--lo), inset 1px 1px #dfdfdf; }
+  button.bevel { font-family: "Press Start 2P", monospace; font-size: .65rem; padding: .55rem .7rem; cursor: pointer; color: var(--ink); min-block-size: 24px; }
+  button.bevel:active { border-color: var(--dark) var(--hi) var(--hi) var(--dark); }
 
-  h1, h2 { font-family: "Limelight", "Didot", serif; font-weight: 400; overflow-wrap: anywhere; }
+  /* Hero */
+  header.hero { text-align: center; color: #fff; padding-block: 1rem 1.5rem; }
+  .smiley { inline-size: 128px; block-size: 128px; image-rendering: pixelated; display: block; margin: 0 auto 1rem; }
+  .bob { animation: bob .6s steps(2) 8; }
+  @keyframes bob { 50% { transform: translateY(-6px) rotate(-6deg); } }
   h1 {
-    font-size: clamp(2.6rem, 10vw, 5.5rem);
-    line-height: 1;
-    letter-spacing: .02em;
     margin: 0;
+    font-size: clamp(1.6rem, 7vw, 3.2rem);
+    line-height: 1.25;
+    color: var(--yellow);
+    text-shadow: 3px 3px 0 #ff0080, 6px 6px 0 #0060ff;
+    overflow-wrap: anywhere;
   }
-  .rule {
-    display: block;
-    inline-size: min(16rem, 60%);
-    margin: 1.1rem auto 1.25rem;
-    border: 0;
-    border-block-start: 3px double var(--ink); block-size: 0; color: var(--ink);
-  }
-  .lede {
-    font-style: italic;
-    font-size: clamp(1.15rem, 2.4vw, 1.4rem);
-    line-height: 1.5;
-    max-inline-size: 32ch;
-    margin: 0 auto 1.6rem;
-  }
-  .links { display: flex; flex-wrap: wrap; justify-content: center; gap: .25rem 1.5rem; margin: 0; padding: 0; list-style: none; }
-  .links a, .go a { display: inline-block; padding-block: .3rem; min-block-size: 24px; }
+  .tagline { font-family: "VT323", monospace; font-size: clamp(1.4rem, 3.5vw, 1.8rem); line-height: 1.2; color: #fff; margin: 1rem auto 0; max-inline-size: 36ch; }
+
+  /* Windows */
+  .window { margin-block-start: 1.25rem; }
+  .bar { display: flex; justify-content: space-between; align-items: center; gap: .5rem; padding: .35rem .5rem; background: linear-gradient(90deg, var(--title), #1084d0); color: #fff; }
+  .bar-title { font-size: .7rem; line-height: 1.4; margin: 0; min-inline-size: 0; overflow-wrap: anywhere; }
+  .bar { flex-wrap: wrap; }
+  .bar-btns { display: flex; gap: 2px; }
+  .bar-btns span { inline-size: 16px; block-size: 14px; background: var(--silver); border: 1px solid; border-color: var(--hi) var(--dark) var(--dark) var(--hi); font: 700 10px/12px Arial, sans-serif; color: #000; text-align: center; }
+  .body { padding: 1rem clamp(.75rem, 3vw, 1.5rem) 1.25rem; }
+  h2 { font-size: clamp(.85rem, 2.6vw, 1.05rem); line-height: 1.5; margin: 0 0 .75rem; color: var(--title); overflow-wrap: anywhere; }
+  h3 { font-size: 1.3rem; margin: 1.25rem 0 .2rem; overflow-wrap: anywhere; }
+  h3:first-child, h2 + h3 { margin-block-start: 0; }
+  p { margin: 0 0 .6rem; }
+  .meta { font-style: italic; color: #333; margin: 0 0 .3rem; }
+  .go a, .links a { display: inline-block; min-block-size: 24px; padding-block: .1rem; }
+  .links { display: flex; flex-wrap: wrap; justify-content: center; gap: .25rem 1.25rem; list-style: none; padding: 0; margin: 1rem 0 0; font-weight: 700; }
+  .links a, .links a:visited, footer a, footer a:visited { color: #9fd0ff; }
   .links a { overflow-wrap: anywhere; }
+  .new { display: inline-block; font-family: "Press Start 2P", monospace; font-size: .55rem; color: #fff; background: #c00000; padding: .2rem .35rem; vertical-align: middle; margin-inline-start: .4rem; }
+  .blink { animation: blink 1s steps(1) 5; }
+  @keyframes blink { 50% { visibility: hidden; } }
 
-  /* Reels */
-  main section { padding-block: clamp(2.5rem, 6vw, 4rem) 0; }
-  h2 {
-    font-size: clamp(1.7rem, 4.2vw, 2.5rem);
-    line-height: 1.1;
-    text-align: center;
-    margin: 0 0 .35rem;
+  .construction {
+    margin-block-start: 1.25rem; padding: .6rem; text-align: center;
+    background: repeating-linear-gradient(-45deg, #ffdd00 0 14px, #000 14px 28px);
   }
-  .sub { text-align: center; font-style: italic; color: var(--soft); margin: 0 auto 2rem; max-inline-size: 36rem; }
-  h2 + .entries { margin-block-start: 2rem; }
-  .entries { display: grid; gap: 2.25rem; max-inline-size: 38rem; margin-inline: auto; }
-  .entries > * { min-inline-size: 0; }
-  h3 { overflow-wrap: anywhere; }
-  h3 { font-weight: 700; font-size: 1.3rem; line-height: 1.25; margin: 0 0 .15rem; }
-  .entry p { margin: 0; }
-  .entry .meta { font-style: italic; color: var(--soft); margin-block-end: .4rem; }
-  .go { margin-block-start: .3rem; }
-  .divider { text-align: center; margin: clamp(2.5rem, 6vw, 4rem) 0 0; letter-spacing: 1em; padding-inline-start: 1em; }
-  .note { max-inline-size: 38rem; margin: 0 auto; }
-  .note + .note { margin-block-start: 1rem; }
+  .construction p { display: inline-block; max-inline-size: 100%; margin: 0; background: #ffdd00; color: #000; font-family: "Press Start 2P", monospace; font-size: .65rem; line-height: 1.6; padding: .4rem .6rem; border: 2px solid #000; }
 
-  footer { margin-block: clamp(3rem, 7vw, 5rem) 2rem; text-align: center; }
-  footer .end { font-family: "Limelight", serif; font-size: 1.6rem; margin: 0 0 .5rem; font-style: normal; color: var(--ink); }
-  footer p { margin: 0; color: var(--soft); font-style: italic; }
+  /* Footer: counter, guestbook, webring, 88x31 buttons */
+  footer { color: #fff; text-align: center; margin-block-start: 1.5rem; }
+  .counter { display: inline-flex; gap: 2px; margin: .2rem 0; font-family: "VT323", monospace; font-size: 1.6rem; }
+  .counter span { background: #000; color: var(--lime); border: 1px solid #444; padding: 0 .3rem; min-inline-size: 1.2em; }
+  .ring { font-family: "VT323", monospace; font-size: 1.4rem; margin: 1rem 0; }
+  .ring a { display: inline-block; min-block-size: 24px; }
+  .buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 1rem 0; padding: 0; list-style: none; }
+  .btn88 { inline-size: 88px; block-size: 31px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 6.5px; line-height: 1.35; text-decoration: none; border: 2px outset #999; }
+  footer .b1 { background: #000; color: var(--lime); }
+  footer .b2 { background: linear-gradient(#ffffff, #a0c8ff); color: #000080; }
+  footer .b3, footer .b3:visited { background: #ffd21e; color: #000; }
+  footer .b4, footer .b4:visited { background: #ff6a00; color: #000; }
+  footer .b5 { background: #800080; color: #fff; }
+  .fine { font-family: "VT323", monospace; font-size: 1.25rem; color: #d8d8d8; margin: .4rem 0 0; }
 
-  /* Iris in, like the opening of a 1927 short */
-  @media (prefers-reduced-motion: no-preference) {
-    .iris { animation: iris 1.1s cubic-bezier(.6,0,.3,1) both; }
-    @keyframes iris { from { clip-path: circle(0% at 50% 30%); } to { clip-path: circle(150% at 50% 30%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee span { animation: none; padding-inline-start: .5rem; white-space: normal; }
+    .bob, .blink { animation: none; }
+    .pause { display: none; }
   }
 </style>
 </head>
 <body>
-<div class="wrap iris">
+<div class="page" id="page">
 
-  <header class="card">
-    <div class="card-inner">
-      <button class="mark-btn" type="button" aria-label="Make the logo wink">
-        <svg class="mark" viewBox="0 0 89.24 89.24" aria-hidden="true" focusable="false">
-          <path fill="currentColor" d="M44.62 8.11 C59.389 8.102 72.708 16.992 78.365 30.634 C84.022 44.277 80.904 59.983 70.464 70.429 C60.023 80.875 44.318 84.003 30.673 78.353 C17.028 72.703 8.13 59.389 8.13 44.62 C8.152 24.473 24.473 8.143 44.62 8.11 M44.62 0 C19.977 0 0 19.977 0 44.62 C0 69.263 19.977 89.24 44.62 89.24 C69.263 89.24 89.24 69.263 89.24 44.62 C89.24 19.977 69.263 0 44.62 0 Z"/>
-          <path fill="currentColor" d="M15.53 36.12 C15.502 34.006 16.358 31.977 17.89 30.52 C19.4 28.989 21.47 28.144 23.62 28.18 C25.741 28.135 27.787 28.963 29.28 30.47 C30.805 31.913 31.654 33.931 31.62 36.03 C31.652 38.163 30.785 40.21 29.23 41.67 C27.695 43.199 25.606 44.039 23.44 44 C19.081 44.006 15.541 40.479 15.53 36.12 Z"/>
-          <path class="wink" fill="currentColor" d="M35.89 42.32 L35.83 29.75 L69.18 29.75 L69.24 42.32 Z"/>
-          <circle class="open" cx="52.5" cy="36.06" r="7.95" fill="currentColor"/>
-          <path fill="currentColor" d="M64.47 52.06 C64.214 64.074 54.402 73.68 42.385 73.68 C30.368 73.68 20.556 64.074 20.3 52.06 Z"/>
-        </svg>
-      </button>
-      <h1 translate="no">Keal Jones</h1>
-      <hr class="rule">
-      <p class="lede">I build the foundations other engineers build on: design systems, frontend platforms and, lately, AI agents.</p>
-      <ul class="links">
-        <li><a href="mailto:kealjones@gmail.com">kealjones@gmail.com</a></li>
-        <li><a href="https://github.com/KealJones">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/kealjones/">LinkedIn</a></li>
-        <li><a href="https://huggingface.co/kealjones">Hugging Face</a></li>
-      </ul>
-    </div>
+  <div class="ticker">
+    <div class="marquee" aria-hidden="true"><span>~*~ Welcome to my homepage!!! ~*~ thanks for stopping by ~*~ design systems, frontend platforms and AI agents ~*~ sign my guestbook ~*~</span></div>
+    <button class="bevel pause" type="button">Pause</button>
+  </div>
+
+  <header class="hero">
+    <img class="smiley bob" src="smiley-32.png" width="32" height="32" alt="Keal's winking smiley logo">
+    <h1 translate="no">Keal Jones</h1>
+    <p class="tagline">I build the foundations other engineers build on: design systems, frontend platforms and, lately, AI agents.</p>
+    <ul class="links">
+      <li><a href="mailto:kealjones@gmail.com">kealjones@gmail.com</a></li>
+      <li><a href="https://github.com/KealJones">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/kealjones/">LinkedIn</a></li>
+      <li><a href="https://huggingface.co/kealjones">Hugging Face</a></li>
+    </ul>
   </header>
 
   <main>
-    <section aria-labelledby="work">
-      <h2 id="work">The Day Job</h2>
-      <div class="entries">
-        <article class="entry">
-          <h3 translate="no">Agent Studio</h3>
-          <p class="meta">Workiva, frontend technical lead, 2026</p>
-          <p>Led the frontend of Workiva's AI agent builder from an empty scaffold to its Amplify 2026 launch in under three months, through five design pivots. Along the way I fixed the hangs in the shared agent backend that every Workiva AI product runs on.</p>
-        </article>
-        <article class="entry">
-          <h3 translate="no">Unify UI</h3>
-          <p class="meta">Workiva, senior software engineer, since 2018</p>
-          <p>The React and TypeScript design system behind Workiva's products, used by a 600+ engineer org. I drive its platform: component architecture, TypeScript-to-Dart code generation and the build tooling. Highlights: a breaking v2 release rolled out org-wide, a 45% smaller minimal bundle, and builds that went from five minutes to two seconds.</p>
-        </article>
+    <section class="window bevel" aria-labelledby="work">
+      <div class="bar" aria-hidden="true"><p class="bar-title">day_job.txt</p><div class="bar-btns"><span>_</span><span>□</span><span>×</span></div></div>
+      <div class="body">
+        <h2 id="work">The Day Job</h2>
+        <h3 translate="no">Agent Studio</h3>
+        <p class="meta">Workiva, frontend technical lead, 2026</p>
+        <p>Led the frontend of Workiva's AI agent builder from an empty scaffold to its Amplify 2026 launch in under three months, through five design pivots. Along the way I fixed the hangs in the shared agent backend that every Workiva AI product runs on.</p>
+        <h3 translate="no">Unify UI</h3>
+        <p class="meta">Workiva, senior software engineer, since 2018</p>
+        <p>The React and TypeScript design system behind Workiva's products, used by a 600+ engineer org. I drive its platform: component architecture, TypeScript-to-Dart code generation and the build tooling. Highlights: a breaking v2 release rolled out org-wide, a 45% smaller minimal bundle, and builds that went from five minutes to two seconds.</p>
       </div>
     </section>
 
-    <p class="divider" aria-hidden="true">&#10022;&#10022;&#10022;</p>
-
-    <section aria-labelledby="experiments">
-      <h2 id="experiments">Things I'm Experimenting With</h2>
-      <p class="sub">Nights-and-weekends questions about small models, memory and what an assistant really needs.</p>
-      <div class="entries">
-        <article class="entry">
-          <h3 translate="no">Squiggle</h3>
-          <p>A private AI agent that runs entirely in your browser, on your own GPU. It remembers you through a small fact graph, finds earlier conversations with hybrid search, and syncs across your devices through a GitHub repo you own. It can commit code and open pull requests, and the safety rules live in code, not in the prompt.</p>
-          <p class="go"><a href="https://kealjones.com/squiggle/">Try Squiggle</a> or <a href="https://github.com/KealJones/squiggle">read the code</a></p>
-        </article>
-        <article class="entry">
-          <h3 translate="no">lm-experiments</h3>
-          <p>Twenty-odd small-model experiments, most written up with the question, the result and what it cost. Can a looked-up snippet teach a small model to write loops in a language it never saw? Can a model learn to ask before it answers? The best results ship: Squiggle Small, a 350M model fine-tuned for Squiggle's tools on a phone, and a Gemma 4 pruned to a 0.6B core and healed by distillation.</p>
-          <p class="go"><a href="https://github.com/KealJones/lm-experiments">The experiments</a> or <a href="https://huggingface.co/kealjones/squiggle-small">Squiggle Small</a></p>
-        </article>
-        <article class="entry">
-          <h3 translate="no">Noodle</h3>
-          <p>An assistant that understands and acts with no language model at all. Everything it knows is a graph of nested concepts, it learns from sources and from being corrected, and it says which word it got stuck on. The latest in a line of attempts: Spoon, Soup, Napkin, Noodle.</p>
-          <p class="go"><a href="https://github.com/KealJones/noodle">Read the design</a></p>
-        </article>
-        <article class="entry">
-          <h3 translate="no">tp-parse</h3>
-          <p>A forgiving parser for <span translate="no">toki pona</span>, a language of about 120 words, built to check machine-translated training data. It accepts 95.8% of a 114,000-sentence real-world corpus and checks all of it in about two seconds.</p>
-          <p class="go"><a href="https://kealjones.com/tp-parse/">Check a sentence</a></p>
-        </article>
+    <section class="window bevel" aria-labelledby="experiments">
+      <div class="bar" aria-hidden="true"><p class="bar-title">experiments/</p><div class="bar-btns"><span>_</span><span>□</span><span>×</span></div></div>
+      <div class="body">
+        <h2 id="experiments">Things I'm Experimenting With</h2>
+        <h3><span translate="no">Squiggle</span><span class="new blink" aria-hidden="true">NEW!</span></h3>
+        <p>A private AI agent that runs entirely in your browser, on your own GPU. It remembers you through a small fact graph, finds earlier conversations with hybrid search, and syncs across your devices through a GitHub repo you own. It can commit code and open pull requests, and the safety rules live in code, not in the prompt.</p>
+        <p class="go"><a href="https://kealjones.com/squiggle/">Try Squiggle</a> or <a href="https://github.com/KealJones/squiggle">read the code</a></p>
+        <h3 translate="no">lm-experiments</h3>
+        <p>Twenty-odd small-model experiments, most written up with the question, the result and what it cost. Can a looked-up snippet teach a small model to write loops in a language it never saw? Can a model learn to ask before it answers? The best results ship: Squiggle Small, a 350M model fine-tuned for Squiggle's tools on a phone, and a Gemma 4 pruned to a 0.6B core and healed by distillation.</p>
+        <p class="go"><a href="https://github.com/KealJones/lm-experiments">The experiments</a> or <a href="https://huggingface.co/kealjones/squiggle-small">Squiggle Small</a></p>
+        <h3 translate="no">Noodle</h3>
+        <p>An assistant that understands and acts with no language model at all. Everything it knows is a graph of nested concepts, it learns from sources and from being corrected, and it says which word it got stuck on. The latest in a line of attempts: Spoon, Soup, Napkin, Noodle.</p>
+        <p class="go"><a href="https://github.com/KealJones/noodle">Read the design</a></p>
+        <h3 translate="no">tp-parse</h3>
+        <p>A forgiving parser for <span translate="no">toki pona</span>, a language of about 120 words, built to check machine-translated training data. It accepts 95.8% of a 114,000-sentence real-world corpus and checks all of it in about two seconds.</p>
+        <p class="go"><a href="https://kealjones.com/tp-parse/">Check a sentence</a></p>
       </div>
     </section>
 
-    <p class="divider" aria-hidden="true">&#10022;&#10022;&#10022;</p>
-
-    <section aria-labelledby="tools">
-      <h2 id="tools">Little Tools</h2>
-      <div class="entries">
-        <article class="entry">
-          <h3 translate="no">Piké</h3>
-          <p>Finds the Pokémon GO keepers hiding in your storage by ranking each one, and its whole evolution line, for PvP.</p>
-          <p class="go"><a href="https://kealjones.com/pike/">Open Piké</a></p>
-        </article>
-        <article class="entry">
-          <h3>What Was I Doin'?</h3>
-          <p>A VS Code extension for people who context-switch a lot: it reads your uncommitted changes and tells you where you left off.</p>
-          <p class="go"><a href="https://github.com/KealJones/whatwasidoin-vscode">See it on GitHub</a></p>
-        </article>
+    <section class="window bevel" aria-labelledby="tools">
+      <div class="bar" aria-hidden="true"><p class="bar-title">little_tools.exe</p><div class="bar-btns"><span>_</span><span>□</span><span>×</span></div></div>
+      <div class="body">
+        <h2 id="tools">Little Tools</h2>
+        <h3 translate="no">Piké</h3>
+        <p>Finds the Pokémon GO keepers hiding in your storage by ranking each one, and its whole evolution line, for PvP.</p>
+        <p class="go"><a href="https://kealjones.com/pike/">Open Piké</a></p>
+        <h3>What Was I Doin'?</h3>
+        <p>A VS Code extension for people who context-switch a lot: it reads your uncommitted changes and tells you where you left off.</p>
+        <p class="go"><a href="https://github.com/KealJones/whatwasidoin-vscode">See it on GitHub</a></p>
       </div>
     </section>
 
-    <p class="divider" aria-hidden="true">&#10022;&#10022;&#10022;</p>
-
-    <section aria-labelledby="before">
-      <h2 id="before">Previously</h2>
-      <p class="note">I started as a graphic designer and moved into code when my team needed a developer, building interactive ads at 24/7 Media and Xaxis in Los Angeles. Then I was CTO of Likey, a Scottsdale startup, before joining Workiva.</p>
-      <p class="note">For a few years I also ran <span translate="no">Kealin.it</span>, a tech-pun apparel brand. The winking face up top was its logo, and it's still me.</p>
+    <section class="window bevel" aria-labelledby="before">
+      <div class="bar" aria-hidden="true"><p class="bar-title">about_me.doc</p><div class="bar-btns"><span>_</span><span>□</span><span>×</span></div></div>
+      <div class="body">
+        <h2 id="before">Previously</h2>
+        <p>I started as a graphic designer and moved into code when my team needed a developer, building interactive ads at 24/7 Media and Xaxis in Los Angeles. Then I was CTO of Likey, a Scottsdale startup, before joining Workiva.</p>
+        <p>For a few years I also ran <span translate="no">Kealin.it</span>, a tech-pun apparel brand. The winking face up top was its logo, and it's still me.</p>
+      </div>
     </section>
+
+    <div class="construction"><p>This page is always under construction</p></div>
   </main>
 
   <footer>
-    <p class="end" aria-hidden="true">The End</p>
-    <p>Phoenix, Arizona. Written by hand in HTML and CSS, no framework.</p>
-  </footer>
+    <p class="fine" id="visits-label">You've stopped by</p>
+    <div class="counter" id="counter" role="img" aria-label="1 time"><span>0</span><span>0</span><span>1</span></div>
+    <p class="fine">time(s). <a href="mailto:kealjones@gmail.com?subject=Signing%20your%20guestbook">Sign my guestbook</a> (it's my inbox).</p>
 
+    <nav class="ring" aria-label="Keal's webring">
+      <a href="https://github.com/KealJones?tab=repositories">&laquo; prev</a>
+      | Keal's Webring |
+      <button class="bevel" type="button" id="random">Random project</button>
+      | <a href="https://huggingface.co/kealjones">next &raquo;</a>
+    </nav>
+
+    <ul class="buttons" aria-label="Badges">
+      <li><span class="btn88 b1">HAND CODED<br>IN NOTEPAD</span></li>
+      <li><span class="btn88 b2">BEST VIEWED<br>IN ANY BROWSER</span></li>
+      <li><a class="btn88 b3" href="https://huggingface.co/kealjones">MODELS ON<br>HUGGING FACE</a></li>
+      <li><a class="btn88 b4" href="https://kealjones.com/squiggle/">TRY<br>SQUIGGLE</a></li>
+      <li><span class="btn88 b5">MADE IN<br>ARIZONA</span></li>
+    </ul>
+    <p class="fine">No frameworks were harmed in the making of this page. Phoenix, Arizona.</p>
+  </footer>
 </div>
 <script>
   (function () {
-    var btn = document.querySelector('.mark-btn');
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function wink() {
-      btn.classList.add('blink');
-      setTimeout(function () { btn.classList.remove('blink'); }, reduce ? 400 : 220);
-    }
-    btn.addEventListener('click', wink);
-    if (!reduce) setTimeout(wink, 1400);
+    var page = document.getElementById('page');
+    var pause = document.querySelector('.pause');
+    pause.addEventListener('click', function () {
+      var on = page.classList.toggle('paused');
+      pause.textContent = on ? 'Play' : 'Pause';
+    });
+
+    // A visitor counter that only counts you: kept in your own browser, never sent anywhere.
+    var n = 1;
+    try { n = (parseInt(localStorage.getItem('visits'), 10) || 0) + 1; localStorage.setItem('visits', String(n)); } catch (e) {}
+    var c = document.getElementById('counter');
+    c.innerHTML = String(n).padStart(3, '0').split('').map(function (d) { return '<span>' + d + '</span>'; }).join('');
+    c.setAttribute('aria-label', n + (n === 1 ? ' time' : ' times'));
+
+    var projects = [
+      'https://kealjones.com/squiggle/', 'https://github.com/KealJones/lm-experiments',
+      'https://github.com/KealJones/noodle', 'https://kealjones.com/tp-parse/',
+      'https://kealjones.com/pike/', 'https://github.com/KealJones/whatwasidoin-vscode'
+    ];
+    document.getElementById('random').addEventListener('click', function () {
+      location.href = projects[Math.floor(Math.random() * projects.length)];
+    });
   })();
 </script>
 </body>
