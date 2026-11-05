@@ -92,9 +92,12 @@ html[data-style="clean"] [data-sign="letterboard"] {
   background: repeating-linear-gradient(#fffdf6 0 1.15rem, #e9e2d2 1.15rem calc(1.15rem + 1px));
   border: 4px solid #2a2622; border-radius: 3px;
 }
+html[data-style="clean"] [data-sign="letterboard"] .letters span { display: inline-block; }
+html[data-style="clean"] [data-sign="letterboard"] .letters span:nth-child(even) { transform: translateY(.3em); }
+html[data-style="clean"] [data-sign="letterboard"] { padding-block: .6rem .85rem; }
 /* Red sign box, white letters */
 html[data-style="clean"] [data-sign="box"] {
-  font: 400 1.15rem/1 "Young Serif", serif; text-transform: uppercase; letter-spacing: .12em;
+  font: 800 1.15rem/1 "Figtree", system-ui, sans-serif; text-transform: uppercase; letter-spacing: .1em;
   color: #fff; background: #bd3720; padding: .6rem .9rem;
   border: 3px solid #fff; outline: 3px solid #bd3720; outline-offset: 0; border-radius: 2px;
   text-shadow: 0 0 1px #fff;
@@ -111,12 +114,12 @@ html[data-style="clean"] [data-sign="colortv"] {
   font: 800 1.05rem/1 "Figtree", sans-serif; text-transform: uppercase; letter-spacing: .06em;
   background: #111; padding: .65rem .85rem; border: 3px solid #8d8d8d; border-radius: 4px;
 }
-html[data-style="clean"] .tv span:nth-child(6n+1) { color: #ff4b4b; }
-html[data-style="clean"] .tv span:nth-child(6n+2) { color: #ff9f1c; }
-html[data-style="clean"] .tv span:nth-child(6n+3) { color: #ffe14d; }
-html[data-style="clean"] .tv span:nth-child(6n+4) { color: #3ddc62; }
-html[data-style="clean"] .tv span:nth-child(6n+5) { color: #4aa8ff; }
-html[data-style="clean"] .tv span:nth-child(6n) { color: #ff6ad5; }
+html[data-style="clean"] [data-sign="colortv"] .letters span:nth-child(6n+1) { color: #ff4b4b; }
+html[data-style="clean"] [data-sign="colortv"] .letters span:nth-child(6n+2) { color: #ff9f1c; }
+html[data-style="clean"] [data-sign="colortv"] .letters span:nth-child(6n+3) { color: #ffe14d; }
+html[data-style="clean"] [data-sign="colortv"] .letters span:nth-child(6n+4) { color: #3ddc62; }
+html[data-style="clean"] [data-sign="colortv"] .letters span:nth-child(6n+5) { color: #4aa8ff; }
+html[data-style="clean"] [data-sign="colortv"] .letters span:nth-child(6n) { color: #ff6ad5; }
 html[data-style="clean"] .links a:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
 
 /* Sections, separated by sign-painter's pinstripes */

@@ -40,10 +40,11 @@
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncToggle);
   syncToggle();
 
-  // --- COLOR TV lettering: one color per letter, same link text for screen readers ---
-  document.querySelectorAll('[data-sign="colortv"]').forEach(function (a) {
+  // --- Letter-by-letter signs (COLOR TV colors, the marquee's uneven letters); screen readers get the plain text ---
+  // Same trick for the marquee board, so its letters can sit at uneven heights.
+  document.querySelectorAll('[data-sign="colortv"], [data-sign="letterboard"]').forEach(function (a) {
     var text = a.textContent;
-    a.innerHTML = '<span class="sr-only">' + text + '</span><span class="tv" aria-hidden="true">' +
+    a.innerHTML = '<span class="sr-only">' + text + '</span><span class="letters" aria-hidden="true">' +
       text.split('').map(function (ch) { return ch === ' ' ? ' ' : '<span>' + ch + '</span>'; }).join('') + '</span>';
   });
 
