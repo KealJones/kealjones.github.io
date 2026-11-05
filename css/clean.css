@@ -48,8 +48,8 @@ html[data-style="clean"] .hero {
   padding-block: clamp(2.5rem, 8vw, 4.5rem) clamp(2rem, 5vw, 3rem);
 }
 html[data-style="clean"] .hero > * { min-inline-size: 0; }
-html[data-style="clean"] .logo { inline-size: 5.5rem; color: var(--ink); margin-block-start: .35rem; }
-html[data-style="clean"] .logo:focus-visible { outline-offset: 5px; border-radius: 50%; }
+html[data-style="clean"] .hero .logo { display: none; }
+html[data-style="clean"] .photo img { display: block; inline-size: 5.5rem; block-size: 5.5rem; border-radius: 50%; object-fit: cover; margin-block-start: .25rem; }
 html[data-style="clean"] h1, html[data-style="clean"] h2 {
   font-family: "Source Serif 4", Georgia, serif; font-weight: 600; letter-spacing: -.01em;
 }
@@ -69,5 +69,5 @@ html[data-style="clean"] .footer { border-block-start: 1px solid var(--rule); pa
 
 @media (max-width: 34rem) {
   html[data-style="clean"] .hero { grid-template-columns: 1fr; gap: 1rem; }
-  html[data-style="clean"] .logo { inline-size: 4.5rem; }
+  html[data-style="clean"] .photo img { inline-size: 4.5rem; block-size: 4.5rem; }
 }

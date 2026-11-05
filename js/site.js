@@ -93,7 +93,9 @@
     var extras = el('div', { class: 'retro-only' },
       '<p>You\'ve stopped by</p>' +
       '<div class="counter" role="img" aria-label="' + n + (n === 1 ? ' time' : ' times') + '">' + digits + '</div>' +
-      '<p>time(s). <a href="mailto:kealjones@gmail.com?subject=Signing%20your%20guestbook">Sign my guestbook</a> (it\'s my inbox).</p>');
+      '<p>time(s). Thanks for coming back!</p>' +
+      '<div class="mackie"><img src="img/mackie.svg" alt="" width="864" height="981">' +
+      '<p class="bubble">Hi, I\'m Mackie! <a href="mailto:kealjones@gmail.com?subject=Signing%20your%20guestbook">Sign Keal\'s guestbook</a> (it\'s his inbox).</p></div>');
 
     // Webring: "random project" picks from the project links already on the page.
     var projects = Array.prototype.map.call(document.querySelectorAll('a[data-project]'), function (a) { return a.href; });
