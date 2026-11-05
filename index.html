@@ -12,11 +12,16 @@
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <script>
   /* Apply the saved look before anything paints, so there's no flash. */
-  try {
-    var s = localStorage.getItem('style'), t = localStorage.getItem('theme');
-    if (s === 'clean' || s === 'retro') document.documentElement.dataset.style = s;
-    if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
-  } catch (e) {}
+  /* A link can pick the look: ?style=1999 (or retro) and ?theme=dark|light. It wins over a saved choice for this visit. */
+  (function () {
+    var d = document.documentElement, q = new URLSearchParams(location.search), s, t;
+    try { s = localStorage.getItem('style'); t = localStorage.getItem('theme'); } catch (e) {}
+    var qs = q.get('style'), qt = q.get('theme');
+    if (qs === '1999' || qs === 'retro') s = 'retro'; else if (qs === 'clean') s = 'clean';
+    if (qt === 'light' || qt === 'dark') t = qt;
+    if (s === 'clean' || s === 'retro') d.dataset.style = s;
+    if (t === 'light' || t === 'dark') d.dataset.theme = t;
+  })();
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

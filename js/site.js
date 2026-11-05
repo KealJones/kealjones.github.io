@@ -14,6 +14,15 @@
     return n;
   }
 
+  // Keep the address bar matching what's on screen, so the link you copy opens this look.
+  function syncUrl() {
+    var q = new URLSearchParams(location.search);
+    if (root.dataset.style === 'retro') q.set('style', '1999'); else q.delete('style');
+    if (root.dataset.style === 'clean' && root.dataset.theme) q.set('theme', root.dataset.theme); else q.delete('theme');
+    var qs = q.toString();
+    history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+  }
+
   // --- Style picker ---
   var pickers = document.querySelectorAll('[data-set-style]');
   function setStyle(style, remember) {
@@ -21,6 +30,7 @@
     pickers.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.setStyle === style)); });
     if (style === 'retro') buildRetro();
     if (remember) save('style', style);
+    if (remember) syncUrl();
   }
   pickers.forEach(function (b) {
     b.addEventListener('click', function () { setStyle(b.dataset.setStyle, true); });
@@ -40,6 +50,7 @@
   toggle.addEventListener('click', function () {
     root.dataset.theme = isDark() ? 'light' : 'dark';
     save('theme', root.dataset.theme);
+    syncUrl();
     syncToggle();
   });
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncToggle);
