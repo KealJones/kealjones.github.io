@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Keal Jones</title>
 <meta name="description" content="Keal Jones builds design systems, frontend platforms and AI agents. Senior software engineer in Phoenix, AZ.">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta property="og:title" content="Keal Jones">
 <meta property="og:description" content="I build the foundations other engineers build on: design systems, frontend platforms and, lately, AI agents.">
 <meta property="og:url" content="https://kealjones.com/">
@@ -14,25 +14,21 @@
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:ital,wght@0,400..600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Limelight&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
+  /* A silent-cartoon title card: one ink, one paper, double rules. */
   :root {
     --paper: #ffffff;
     --ink: #000000;
-    --soft: #5c5c5c;
-    --rule: #e2e2e2;
-    --mark: #ffd23f;   /* the second screenprint ink: selection, focus, highlight */
-    --link: #1f3cff;
+    --soft: #4d4d4d;
+    --link: #000000;
+    --mark: #ffd23f;
     color-scheme: light dark;
   }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper: #000000; --ink: #ffffff; --soft: #a8a8a8; --rule: #2a2a2a; --link: #8fa2ff;
-    }
+    :root:not([data-theme="light"]) { --paper: #000000; --ink: #ffffff; --soft: #b5b5b5; --link: #ffffff; }
   }
-  :root[data-theme="dark"] {
-    --paper: #000000; --ink: #ffffff; --soft: #a8a8a8; --rule: #2a2a2a; --link: #8fa2ff;
-  }
+  :root[data-theme="dark"] { --paper: #000000; --ink: #ffffff; --soft: #b5b5b5; --link: #ffffff; }
 
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
@@ -40,108 +36,121 @@
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font: 400 1.0625rem/1.6 "Instrument Sans", system-ui, sans-serif;
-    text-rendering: optimizeLegibility;
+    font: 400 1.0625rem/1.7 "Libre Caslon Text", Georgia, serif;
+    font-variant-numeric: oldstyle-nums proportional-nums;
     overflow-wrap: break-word;
   }
   ::selection { background: var(--mark); color: #000; }
-  a { color: var(--link); text-underline-offset: .18em; text-decoration-thickness: .08em; }
-  a:hover { text-decoration-thickness: .16em; }
-  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 2px; box-shadow: 0 0 0 7px var(--mark); }
+  a { color: var(--link); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; box-shadow: 0 0 0 7px var(--mark); }
 
-  .wrap { max-inline-size: 68rem; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 3rem); }
+  .wrap { max-inline-size: 60rem; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 3rem); }
 
-  /* Hero: the mark, big, and one sentence */
-  header.hero {
-    display: grid;
-    grid-template-columns: minmax(9rem, 22rem) 1fr;
-    gap: clamp(1.5rem, 5vw, 4rem);
-    align-items: center;
-    padding-block: clamp(3rem, 10vw, 7rem) clamp(2.5rem, 6vw, 4.5rem);
+  /* The title card */
+  .card {
+    margin-block: clamp(1.25rem, 5vw, 3rem) 0;
+    border: 6px double var(--ink);
+    padding: 5px;
   }
-  header.hero > *, .cols > * { min-inline-size: 0; }
-  .links a { overflow-wrap: anywhere; }
-  .mark { width: 100%; height: auto; display: block; color: var(--ink); }
-  .mark-btn { all: unset; cursor: pointer; display: block; border-radius: 50%; }
-  .mark-btn:focus-visible { outline: 4px solid var(--ink); outline-offset: 6px; box-shadow: 0 0 0 12px var(--mark); }
-  .mark .wink { transition: transform .14s ease-in; transform-origin: 158px 99px; }
+  .card-inner {
+    border: 1px solid var(--ink);
+    padding: clamp(2rem, 7vw, 4.5rem) clamp(1rem, 5vw, 3rem);
+    text-align: center;
+    position: relative;
+  }
+  /* Corner stars, as on old intertitles */
+  .card-inner::before, .card-inner::after {
+    content: "\2726";
+    position: absolute;
+    inset-block-start: .5rem;
+    font-size: 1rem;
+    line-height: 1;
+  }
+  .card-inner::before { inset-inline-start: .65rem; }
+  .card-inner::after { inset-inline-end: .65rem; }
+
+  .mark-btn { all: unset; cursor: pointer; display: block; margin: 0 auto 1.75rem; inline-size: clamp(8rem, 26vw, 12rem); max-inline-size: 100%; border-radius: 50%; }
+  .mark-btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 6px; box-shadow: 0 0 0 12px var(--mark); }
+  .mark { inline-size: 100%; block-size: auto; display: block; color: var(--ink); }
+  .mark .wink { transition: transform .14s ease-in; transform-origin: 52.5px 36px; }
   .mark .open { opacity: 0; transition: opacity .1s ease-in; }
   .mark-btn.blink .wink { transform: scaleX(.2); }
   .mark-btn.blink .open { opacity: 1; }
-  @media (prefers-reduced-motion: reduce) {
-    .mark .wink, .mark .open { transition: none; }
-  }
 
-  h1, h2, h3 { overflow-wrap: anywhere; hyphens: auto; }
+  h1, h2 { font-family: "Limelight", "Didot", serif; font-weight: 400; overflow-wrap: anywhere; }
   h1 {
-    font-family: "Bricolage Grotesque", system-ui, sans-serif;
-    font-variation-settings: "opsz" 96, "wdth" 75;
-    font-weight: 800;
-    font-size: clamp(3rem, 11vw, 7.5rem);
-    line-height: .88;
-    letter-spacing: -.02em;
-    margin: 0 0 1.25rem;
-  }
-  .lede {
-    font-size: clamp(1.2rem, 2.4vw, 1.55rem);
-    line-height: 1.4;
-    max-inline-size: 30ch;
-    margin: 0 0 1.75rem;
-  }
-  .links { display: flex; flex-wrap: wrap; gap: .25rem 1.4rem; margin: 0; padding: 0; list-style: none; font-weight: 600; }
-  .links a, .entry .go a { display: inline-block; padding-block: .35rem; min-block-size: 24px; }
-
-  /* Sections */
-  main section { border-top: 4px solid var(--ink); padding-block: clamp(2rem, 5vw, 3.5rem); }
-  .cols { display: grid; grid-template-columns: minmax(9rem, 22rem) 1fr; gap: clamp(1.5rem, 5vw, 4rem); }
-  h2 {
-    font-family: "Bricolage Grotesque", system-ui, sans-serif;
-    font-variation-settings: "opsz" 48, "wdth" 85;
-    font-weight: 700;
-    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    font-size: clamp(2.6rem, 10vw, 5.5rem);
     line-height: 1;
+    letter-spacing: .02em;
     margin: 0;
   }
-  h3 {
-    font-family: "Bricolage Grotesque", system-ui, sans-serif;
-    font-variation-settings: "opsz" 24, "wdth" 90;
-    font-weight: 700;
-    font-size: 1.35rem;
-    line-height: 1.15;
+  .rule {
+    display: block;
+    inline-size: min(16rem, 60%);
+    margin: 1.1rem auto 1.25rem;
+    border: 0;
+    border-block-start: 3px double var(--ink); block-size: 0; color: var(--ink);
+  }
+  .lede {
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+    line-height: 1.5;
+    max-inline-size: 32ch;
+    margin: 0 auto 1.6rem;
+  }
+  .links { display: flex; flex-wrap: wrap; justify-content: center; gap: .25rem 1.5rem; margin: 0; padding: 0; list-style: none; }
+  .links a, .go a { display: inline-block; padding-block: .3rem; min-block-size: 24px; }
+  .links a { overflow-wrap: anywhere; }
+
+  /* Reels */
+  main section { padding-block: clamp(2.5rem, 6vw, 4rem) 0; }
+  h2 {
+    font-size: clamp(1.7rem, 4.2vw, 2.5rem);
+    line-height: 1.1;
+    text-align: center;
     margin: 0 0 .35rem;
   }
-  .entries { display: grid; gap: 2rem; max-inline-size: 42rem; }
+  .sub { text-align: center; font-style: italic; color: var(--soft); margin: 0 auto 2rem; max-inline-size: 36rem; }
+  h2 + .entries { margin-block-start: 2rem; }
+  .entries { display: grid; gap: 2.25rem; max-inline-size: 38rem; margin-inline: auto; }
+  .entries > * { min-inline-size: 0; }
+  h3 { overflow-wrap: anywhere; }
+  h3 { font-weight: 700; font-size: 1.3rem; line-height: 1.25; margin: 0 0 .15rem; }
   .entry p { margin: 0; }
-  .entry .meta { color: var(--soft); font-size: .95rem; margin-block-end: .4rem; }
-  .entry .go { margin-block-start: .35rem; font-weight: 600; }
-  .note { max-inline-size: 42rem; margin: 0; }
+  .entry .meta { font-style: italic; color: var(--soft); margin-block-end: .4rem; }
+  .go { margin-block-start: .3rem; }
+  .divider { text-align: center; margin: clamp(2.5rem, 6vw, 4rem) 0 0; letter-spacing: 1em; padding-inline-start: 1em; }
+  .note { max-inline-size: 38rem; margin: 0 auto; }
   .note + .note { margin-block-start: 1rem; }
-  strong { font-weight: 600; }
 
-  footer { border-top: 4px solid var(--ink); padding-block: 2rem 3rem; color: var(--soft); font-size: .95rem; }
-  footer p { margin: 0; max-inline-size: 42rem; }
+  footer { margin-block: clamp(3rem, 7vw, 5rem) 2rem; text-align: center; }
+  footer .end { font-family: "Limelight", serif; font-size: 1.6rem; margin: 0 0 .5rem; font-style: normal; color: var(--ink); }
+  footer p { margin: 0; color: var(--soft); font-style: italic; }
 
-  @media (max-width: 44rem) {
-    header.hero, .cols { grid-template-columns: 1fr; }
-    header.hero .mark-btn { width: min(12rem, 55vw); }
+  /* Iris in, like the opening of a 1927 short */
+  @media (prefers-reduced-motion: no-preference) {
+    .iris { animation: iris 1.1s cubic-bezier(.6,0,.3,1) both; }
+    @keyframes iris { from { clip-path: circle(0% at 50% 30%); } to { clip-path: circle(150% at 50% 30%); } }
   }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap iris">
 
-  <header class="hero">
-    <button class="mark-btn" type="button" aria-label="Make the logo wink">
-      <svg class="mark" viewBox="0 0 256 256" aria-hidden="true" focusable="false">
-        <circle cx="128" cy="128" r="114" fill="none" stroke="currentColor" stroke-width="20"/>
-        <circle cx="86" cy="99" r="17" fill="currentColor"/>
-        <rect class="wink" x="118" y="87" width="80" height="24" fill="currentColor"/>
-        <circle class="open" cx="158" cy="99" r="17" fill="currentColor"/>
-        <path d="M66 130 H196 A65 65 0 0 1 66 130 Z" fill="currentColor"/>
-      </svg>
-    </button>
-    <div>
+  <header class="card">
+    <div class="card-inner">
+      <button class="mark-btn" type="button" aria-label="Make the logo wink">
+        <svg class="mark" viewBox="0 0 89.24 89.24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M44.62 8.11 C59.389 8.102 72.708 16.992 78.365 30.634 C84.022 44.277 80.904 59.983 70.464 70.429 C60.023 80.875 44.318 84.003 30.673 78.353 C17.028 72.703 8.13 59.389 8.13 44.62 C8.152 24.473 24.473 8.143 44.62 8.11 M44.62 0 C19.977 0 0 19.977 0 44.62 C0 69.263 19.977 89.24 44.62 89.24 C69.263 89.24 89.24 69.263 89.24 44.62 C89.24 19.977 69.263 0 44.62 0 Z"/>
+          <path fill="currentColor" d="M15.53 36.12 C15.502 34.006 16.358 31.977 17.89 30.52 C19.4 28.989 21.47 28.144 23.62 28.18 C25.741 28.135 27.787 28.963 29.28 30.47 C30.805 31.913 31.654 33.931 31.62 36.03 C31.652 38.163 30.785 40.21 29.23 41.67 C27.695 43.199 25.606 44.039 23.44 44 C19.081 44.006 15.541 40.479 15.53 36.12 Z"/>
+          <path class="wink" fill="currentColor" d="M35.89 42.32 L35.83 29.75 L69.18 29.75 L69.24 42.32 Z"/>
+          <circle class="open" cx="52.5" cy="36.06" r="7.95" fill="currentColor"/>
+          <path fill="currentColor" d="M64.47 52.06 C64.214 64.074 54.402 73.68 42.385 73.68 C30.368 73.68 20.556 64.074 20.3 52.06 Z"/>
+        </svg>
+      </button>
       <h1 translate="no">Keal Jones</h1>
+      <hr class="rule">
       <p class="lede">I build the foundations other engineers build on: design systems, frontend platforms and, lately, AI agents.</p>
       <ul class="links">
         <li><a href="mailto:kealjones@gmail.com">kealjones@gmail.com</a></li>
@@ -154,68 +163,79 @@
 
   <main>
     <section aria-labelledby="work">
-      <div class="cols">
-        <h2 id="work">Work</h2>
-        <div class="entries">
-          <article class="entry">
-            <h3 translate="no">Agent Studio</h3>
-            <p class="meta">Workiva, frontend technical lead, 2026</p>
-            <p>Led the frontend of Workiva's AI agent builder from an empty scaffold to its Amplify 2026 launch in under three months, through five design pivots. Along the way I fixed the hangs in the shared agent backend that every Workiva AI product runs on.</p>
-          </article>
-          <article class="entry">
-            <h3 translate="no">Unify UI</h3>
-            <p class="meta">Workiva, senior software engineer, since 2018</p>
-            <p>The React and TypeScript design system behind Workiva's products, used by a 600+ engineer org. I drive its platform: component architecture, TypeScript-to-Dart code generation, and the build tooling. Highlights: a breaking v2 release rolled out org-wide, a 45% smaller minimal bundle, and builds that went from five minutes to two seconds.</p>
-          </article>
-        </div>
+      <h2 id="work">The Day Job</h2>
+      <div class="entries">
+        <article class="entry">
+          <h3 translate="no">Agent Studio</h3>
+          <p class="meta">Workiva, frontend technical lead, 2026</p>
+          <p>Led the frontend of Workiva's AI agent builder from an empty scaffold to its Amplify 2026 launch in under three months, through five design pivots. Along the way I fixed the hangs in the shared agent backend that every Workiva AI product runs on.</p>
+        </article>
+        <article class="entry">
+          <h3 translate="no">Unify UI</h3>
+          <p class="meta">Workiva, senior software engineer, since 2018</p>
+          <p>The React and TypeScript design system behind Workiva's products, used by a 600+ engineer org. I drive its platform: component architecture, TypeScript-to-Dart code generation and the build tooling. Highlights: a breaking v2 release rolled out org-wide, a 45% smaller minimal bundle, and builds that went from five minutes to two seconds.</p>
+        </article>
       </div>
     </section>
 
-    <section aria-labelledby="made">
-      <div class="cols">
-        <h2 id="made">Things I've made</h2>
-        <div class="entries">
-          <article class="entry">
-            <h3 translate="no">Squiggle</h3>
-            <p>A private AI agent that runs entirely in your browser, on your own GPU. It remembers you through a small fact graph, finds earlier conversations with hybrid search, and syncs across your devices through a GitHub repo you own. It can commit code and open pull requests, and the safety rules live in code, not in the prompt.</p>
-            <p class="go"><a href="https://kealjones.com/squiggle/">Try Squiggle</a> or <a href="https://github.com/KealJones/squiggle">read the code</a></p>
-          </article>
-          <article class="entry">
-            <h3 translate="no">Squiggle Small</h3>
-            <p>A 350M-parameter model I fine-tuned to use Squiggle's tools on a phone, plus a Gemma 4 pruned to a 0.6B core and healed by distillation. Training runs on rented GPUs, queued from a GitHub repo.</p>
-            <p class="go"><a href="https://huggingface.co/kealjones/squiggle-small">The model</a> or <a href="https://github.com/KealJones/lm-experiments">the experiments</a></p>
-          </article>
-          <article class="entry">
-            <h3 translate="no">tp-parse</h3>
-            <p>A forgiving parser for <span translate="no">toki pona</span>, a language of about 120 words. It accepts 95.8% of a 114,000-sentence real-world corpus and checks all of it in about two seconds.</p>
-            <p class="go"><a href="https://kealjones.com/tp-parse/">Check a sentence</a></p>
-          </article>
-          <article class="entry">
-            <h3 translate="no">Piké</h3>
-            <p>Finds the Pokémon GO keepers hiding in your storage by ranking each one, and its whole evolution line, for PvP.</p>
-            <p class="go"><a href="https://kealjones.com/pike/">Open Piké</a></p>
-          </article>
-          <article class="entry">
-            <h3>What was I doin'?</h3>
-            <p>A VS Code extension for people who context-switch a lot: it reads your uncommitted changes and tells you where you left off.</p>
-            <p class="go"><a href="https://github.com/KealJones/whatwasidoin-vscode">See it on GitHub</a></p>
-          </article>
-        </div>
+    <p class="divider" aria-hidden="true">&#10022;&#10022;&#10022;</p>
+
+    <section aria-labelledby="experiments">
+      <h2 id="experiments">Things I'm Experimenting With</h2>
+      <p class="sub">Nights-and-weekends questions about small models, memory and what an assistant really needs.</p>
+      <div class="entries">
+        <article class="entry">
+          <h3 translate="no">Squiggle</h3>
+          <p>A private AI agent that runs entirely in your browser, on your own GPU. It remembers you through a small fact graph, finds earlier conversations with hybrid search, and syncs across your devices through a GitHub repo you own. It can commit code and open pull requests, and the safety rules live in code, not in the prompt.</p>
+          <p class="go"><a href="https://kealjones.com/squiggle/">Try Squiggle</a> or <a href="https://github.com/KealJones/squiggle">read the code</a></p>
+        </article>
+        <article class="entry">
+          <h3 translate="no">lm-experiments</h3>
+          <p>Twenty-odd small-model experiments, most written up with the question, the result and what it cost. Can a looked-up snippet teach a small model to write loops in a language it never saw? Can a model learn to ask before it answers? The best results ship: Squiggle Small, a 350M model fine-tuned for Squiggle's tools on a phone, and a Gemma 4 pruned to a 0.6B core and healed by distillation.</p>
+          <p class="go"><a href="https://github.com/KealJones/lm-experiments">The experiments</a> or <a href="https://huggingface.co/kealjones/squiggle-small">Squiggle Small</a></p>
+        </article>
+        <article class="entry">
+          <h3 translate="no">Noodle</h3>
+          <p>An assistant that understands and acts with no language model at all. Everything it knows is a graph of nested concepts, it learns from sources and from being corrected, and it says which word it got stuck on. The latest in a line of attempts: Spoon, Soup, Napkin, Noodle.</p>
+          <p class="go"><a href="https://github.com/KealJones/noodle">Read the design</a></p>
+        </article>
+        <article class="entry">
+          <h3 translate="no">tp-parse</h3>
+          <p>A forgiving parser for <span translate="no">toki pona</span>, a language of about 120 words, built to check machine-translated training data. It accepts 95.8% of a 114,000-sentence real-world corpus and checks all of it in about two seconds.</p>
+          <p class="go"><a href="https://kealjones.com/tp-parse/">Check a sentence</a></p>
+        </article>
       </div>
     </section>
+
+    <p class="divider" aria-hidden="true">&#10022;&#10022;&#10022;</p>
+
+    <section aria-labelledby="tools">
+      <h2 id="tools">Little Tools</h2>
+      <div class="entries">
+        <article class="entry">
+          <h3 translate="no">Piké</h3>
+          <p>Finds the Pokémon GO keepers hiding in your storage by ranking each one, and its whole evolution line, for PvP.</p>
+          <p class="go"><a href="https://kealjones.com/pike/">Open Piké</a></p>
+        </article>
+        <article class="entry">
+          <h3>What Was I Doin'?</h3>
+          <p>A VS Code extension for people who context-switch a lot: it reads your uncommitted changes and tells you where you left off.</p>
+          <p class="go"><a href="https://github.com/KealJones/whatwasidoin-vscode">See it on GitHub</a></p>
+        </article>
+      </div>
+    </section>
+
+    <p class="divider" aria-hidden="true">&#10022;&#10022;&#10022;</p>
 
     <section aria-labelledby="before">
-      <div class="cols">
-        <h2 id="before">Before all that</h2>
-        <div>
-          <p class="note">I started as a graphic designer and moved into code when my team needed a developer, building interactive ads at 24/7 Media and Xaxis in Los Angeles. Then I was CTO of Likey, a Scottsdale startup, before joining Workiva.</p>
-          <p class="note">For a few years I also ran <span translate="no">Kealin.it</span>, a tech-pun apparel brand. The winking face up top was its logo, and it's still me.</p>
-        </div>
-      </div>
+      <h2 id="before">Previously</h2>
+      <p class="note">I started as a graphic designer and moved into code when my team needed a developer, building interactive ads at 24/7 Media and Xaxis in Los Angeles. Then I was CTO of Likey, a Scottsdale startup, before joining Workiva.</p>
+      <p class="note">For a few years I also ran <span translate="no">Kealin.it</span>, a tech-pun apparel brand. The winking face up top was its logo, and it's still me.</p>
     </section>
   </main>
 
   <footer>
+    <p class="end" aria-hidden="true">The End</p>
     <p>Phoenix, Arizona. Written by hand in HTML and CSS, no framework.</p>
   </footer>
 
@@ -229,7 +249,7 @@
       setTimeout(function () { btn.classList.remove('blink'); }, reduce ? 400 : 220);
     }
     btn.addEventListener('click', wink);
-    if (!reduce) setTimeout(wink, 900);
+    if (!reduce) setTimeout(wink, 1400);
   })();
 </script>
 </body>
