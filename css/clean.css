@@ -68,6 +68,8 @@ html[data-style="clean"][data-theme="dark"] h1 { color: #ffe9ea; text-shadow: 0 
 }
 @media (prefers-reduced-motion: no-preference) {
   html[data-style="clean"] h1 { animation: sign-on 1.2s steps(1) .3s both; }
+  html[data-style="clean"] h1.buzz { animation: sign-buzz .45s steps(1) both; }
+  @keyframes sign-buzz { 0% { opacity: 1; } 20% { opacity: .5; } 45%, 100% { opacity: 1; } }
   @keyframes sign-on { 0% { opacity: 0; } 15% { opacity: 1; } 22% { opacity: .6; } 30%, 100% { opacity: 1; } }
 }
 html[data-style="clean"] .tagline {

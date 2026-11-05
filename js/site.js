@@ -57,6 +57,22 @@
   logo.addEventListener('click', wink);
   if (!reduce) setTimeout(wink, 1000);
 
+  // --- Neon that buzzes now and then (clean look, dark mode only) ---
+  // A few random flickers after the opening one, then it stays lit (WCAG 2.2.2).
+  var sign = document.querySelector('h1');
+  var buzzes = 0;
+  function buzzLater() {
+    if (reduce || buzzes >= 5) return;
+    setTimeout(function () {
+      if (root.dataset.style === 'clean' && isDark() && !document.hidden) {
+        sign.classList.remove('buzz'); void sign.offsetWidth; sign.classList.add('buzz');
+        buzzes++;
+      }
+      buzzLater();
+    }, 15000 + Math.random() * 25000);
+  }
+  buzzLater();
+
   // --- 1999 decoration, built once on first use ---
   var built = false;
   function buildRetro() {
