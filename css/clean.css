@@ -93,7 +93,7 @@ html[data-style="clean"] [data-sign="letterboard"] {
   border: 4px solid #2a2622; border-radius: 3px;
 }
 html[data-style="clean"] [data-sign="letterboard"] .letters span { display: inline-block; }
-html[data-style="clean"] [data-sign="letterboard"] .letters span:nth-child(even) { transform: translateY(.12em); }
+html[data-style="clean"] [data-sign="letterboard"] .letters span:nth-child(even) { transform: translateY(.07em); }
 html[data-style="clean"] [data-sign="letterboard"] { padding-block: .6rem .85rem; }
 /* Red sign box, white letters */
 html[data-style="clean"] [data-sign="box"] {
