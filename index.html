@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,13 +42,14 @@
     color: var(--ink);
     font: 400 1.0625rem/1.6 "Instrument Sans", system-ui, sans-serif;
     text-rendering: optimizeLegibility;
+    overflow-wrap: break-word;
   }
   ::selection { background: var(--mark); color: #000; }
   a { color: var(--link); text-underline-offset: .18em; text-decoration-thickness: .08em; }
   a:hover { text-decoration-thickness: .16em; }
-  :focus-visible { outline: 3px solid var(--mark); outline-offset: 3px; border-radius: 2px; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 2px; box-shadow: 0 0 0 7px var(--mark); }
 
-  .wrap { max-width: 68rem; margin: 0 auto; padding: 0 clamp(1rem, 5vw, 3rem); }
+  .wrap { max-inline-size: 68rem; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 3rem); }
 
   /* Hero: the mark, big, and one sentence */
   header.hero {
@@ -58,9 +59,11 @@
     align-items: center;
     padding-block: clamp(3rem, 10vw, 7rem) clamp(2.5rem, 6vw, 4.5rem);
   }
+  header.hero > *, .cols > * { min-inline-size: 0; }
+  .links a { overflow-wrap: anywhere; }
   .mark { width: 100%; height: auto; display: block; color: var(--ink); }
   .mark-btn { all: unset; cursor: pointer; display: block; border-radius: 50%; }
-  .mark-btn:focus-visible { outline: 4px solid var(--mark); outline-offset: 6px; }
+  .mark-btn:focus-visible { outline: 4px solid var(--ink); outline-offset: 6px; box-shadow: 0 0 0 12px var(--mark); }
   .mark .wink { transition: transform .14s ease-in; transform-origin: 158px 99px; }
   .mark .open { opacity: 0; transition: opacity .1s ease-in; }
   .mark-btn.blink .wink { transform: scaleX(.2); }
@@ -69,6 +72,7 @@
     .mark .wink, .mark .open { transition: none; }
   }
 
+  h1, h2, h3 { overflow-wrap: anywhere; hyphens: auto; }
   h1 {
     font-family: "Bricolage Grotesque", system-ui, sans-serif;
     font-variation-settings: "opsz" 96, "wdth" 75;
@@ -81,10 +85,11 @@
   .lede {
     font-size: clamp(1.2rem, 2.4vw, 1.55rem);
     line-height: 1.4;
-    max-width: 30ch;
+    max-inline-size: 30ch;
     margin: 0 0 1.75rem;
   }
-  .links { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin: 0; padding: 0; list-style: none; font-weight: 600; }
+  .links { display: flex; flex-wrap: wrap; gap: .25rem 1.4rem; margin: 0; padding: 0; list-style: none; font-weight: 600; }
+  .links a, .entry .go a { display: inline-block; padding-block: .35rem; min-block-size: 24px; }
 
   /* Sections */
   main section { border-top: 4px solid var(--ink); padding-block: clamp(2rem, 5vw, 3.5rem); }
@@ -105,16 +110,16 @@
     line-height: 1.15;
     margin: 0 0 .35rem;
   }
-  .entries { display: grid; gap: 2rem; max-width: 42rem; }
+  .entries { display: grid; gap: 2rem; max-inline-size: 42rem; }
   .entry p { margin: 0; }
-  .entry .meta { color: var(--soft); font-size: .95rem; margin-bottom: .4rem; }
-  .entry .go { margin-top: .5rem; font-weight: 600; }
-  .note { max-width: 42rem; margin: 0; }
-  .note + .note { margin-top: 1rem; }
+  .entry .meta { color: var(--soft); font-size: .95rem; margin-block-end: .4rem; }
+  .entry .go { margin-block-start: .35rem; font-weight: 600; }
+  .note { max-inline-size: 42rem; margin: 0; }
+  .note + .note { margin-block-start: 1rem; }
   strong { font-weight: 600; }
 
   footer { border-top: 4px solid var(--ink); padding-block: 2rem 3rem; color: var(--soft); font-size: .95rem; }
-  footer p { margin: 0; max-width: 42rem; }
+  footer p { margin: 0; max-inline-size: 42rem; }
 
   @media (max-width: 44rem) {
     header.hero, .cols { grid-template-columns: 1fr; }
@@ -127,7 +132,7 @@
 
   <header class="hero">
     <button class="mark-btn" type="button" aria-label="Make the logo wink">
-      <svg class="mark" viewBox="0 0 256 256" role="img" aria-hidden="true">
+      <svg class="mark" viewBox="0 0 256 256" aria-hidden="true" focusable="false">
         <circle cx="128" cy="128" r="114" fill="none" stroke="currentColor" stroke-width="20"/>
         <circle cx="86" cy="99" r="17" fill="currentColor"/>
         <rect class="wink" x="118" y="87" width="80" height="24" fill="currentColor"/>
@@ -136,7 +141,7 @@
       </svg>
     </button>
     <div>
-      <h1>Keal Jones</h1>
+      <h1 translate="no">Keal Jones</h1>
       <p class="lede">I build the foundations other engineers build on: design systems, frontend platforms and, lately, AI agents.</p>
       <ul class="links">
         <li><a href="mailto:kealjones@gmail.com">kealjones@gmail.com</a></li>
@@ -153,12 +158,12 @@
         <h2 id="work">Work</h2>
         <div class="entries">
           <article class="entry">
-            <h3>Agent Studio</h3>
+            <h3 translate="no">Agent Studio</h3>
             <p class="meta">Workiva, frontend technical lead, 2026</p>
             <p>Led the frontend of Workiva's AI agent builder from an empty scaffold to its Amplify 2026 launch in under three months, through five design pivots. Along the way I fixed the hangs in the shared agent backend that every Workiva AI product runs on.</p>
           </article>
           <article class="entry">
-            <h3>Unify UI</h3>
+            <h3 translate="no">Unify UI</h3>
             <p class="meta">Workiva, senior software engineer, since 2018</p>
             <p>The React and TypeScript design system behind Workiva's products, used by a 600+ engineer org. I drive its platform: component architecture, TypeScript-to-Dart code generation, and the build tooling. Highlights: a breaking v2 release rolled out org-wide, a 45% smaller minimal bundle, and builds that went from five minutes to two seconds.</p>
           </article>
@@ -171,22 +176,22 @@
         <h2 id="made">Things I've made</h2>
         <div class="entries">
           <article class="entry">
-            <h3>Squiggle</h3>
+            <h3 translate="no">Squiggle</h3>
             <p>A private AI agent that runs entirely in your browser, on your own GPU. It remembers you through a small fact graph, finds earlier conversations with hybrid search, and syncs across your devices through a GitHub repo you own. It can commit code and open pull requests, and the safety rules live in code, not in the prompt.</p>
             <p class="go"><a href="https://kealjones.com/squiggle/">Try Squiggle</a> or <a href="https://github.com/KealJones/squiggle">read the code</a></p>
           </article>
           <article class="entry">
-            <h3>Squiggle Small</h3>
+            <h3 translate="no">Squiggle Small</h3>
             <p>A 350M-parameter model I fine-tuned to use Squiggle's tools on a phone, plus a Gemma 4 pruned to a 0.6B core and healed by distillation. Training runs on rented GPUs, queued from a GitHub repo.</p>
             <p class="go"><a href="https://huggingface.co/kealjones/squiggle-small">The model</a> or <a href="https://github.com/KealJones/lm-experiments">the experiments</a></p>
           </article>
           <article class="entry">
-            <h3>tp-parse</h3>
-            <p>A forgiving parser for toki pona, a language of about 120 words. It accepts 95.8% of a 114,000-sentence real-world corpus and checks all of it in about two seconds.</p>
+            <h3 translate="no">tp-parse</h3>
+            <p>A forgiving parser for <span translate="no">toki pona</span>, a language of about 120 words. It accepts 95.8% of a 114,000-sentence real-world corpus and checks all of it in about two seconds.</p>
             <p class="go"><a href="https://kealjones.com/tp-parse/">Check a sentence</a></p>
           </article>
           <article class="entry">
-            <h3>Piké</h3>
+            <h3 translate="no">Piké</h3>
             <p>Finds the Pokémon GO keepers hiding in your storage by ranking each one, and its whole evolution line, for PvP.</p>
             <p class="go"><a href="https://kealjones.com/pike/">Open Piké</a></p>
           </article>
@@ -204,7 +209,7 @@
         <h2 id="before">Before all that</h2>
         <div>
           <p class="note">I started as a graphic designer and moved into code when my team needed a developer, building interactive ads at 24/7 Media and Xaxis in Los Angeles. Then I was CTO of Likey, a Scottsdale startup, before joining Workiva.</p>
-          <p class="note">For a few years I also ran Kealin.it, a tech-pun apparel brand. The winking face up top was its logo, and it's still me.</p>
+          <p class="note">For a few years I also ran <span translate="no">Kealin.it</span>, a tech-pun apparel brand. The winking face up top was its logo, and it's still me.</p>
         </div>
       </div>
     </section>
