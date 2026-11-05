@@ -74,12 +74,50 @@ html[data-style="clean"] .tagline {
   font: 400 clamp(1.15rem, 2.6vw, 1.4rem)/1.45 "Young Serif", Georgia, serif;
   max-inline-size: 30ch; margin: 0 auto 1.4rem;
 }
-html[data-style="clean"] .links { justify-content: center; gap: .5rem; }
+/* Links: a pole full of motel signs */
+html[data-style="clean"] .links { justify-content: center; align-items: center; gap: 1rem 1.1rem; margin-block-start: .5rem; }
 html[data-style="clean"] .links a {
-  text-decoration: none; color: var(--ink); background: var(--chip);
-  border: 1.5px solid var(--ink); border-radius: 999px; padding: .35rem .9rem; font-size: .95rem;
+  display: inline-block; text-decoration: none; font-weight: 700; line-height: 1.1;
+  transition: transform .15s ease-out;
+  box-shadow: 4px 5px 0 rgba(0,0,0,.22);
 }
-html[data-style="clean"] .links a:hover { background: var(--mustard); color: #1e1a16; }
+html[data-style="clean"] .links li:nth-child(odd) a { transform: rotate(-3deg); }
+html[data-style="clean"] .links li:nth-child(even) a { transform: rotate(2.5deg); }
+html[data-style="clean"] .links a:hover { transform: rotate(0deg) translateY(-3px); }
+
+/* Changeable-letter marquee board */
+html[data-style="clean"] [data-sign="letterboard"] {
+  font: 700 .95rem/1 "Figtree", sans-serif; text-transform: uppercase; letter-spacing: .08em;
+  color: #c4122f; padding: .7rem .9rem;
+  background: repeating-linear-gradient(#fffdf6 0 1.15rem, #e9e2d2 1.15rem calc(1.15rem + 1px));
+  border: 4px solid #2a2622; border-radius: 3px;
+}
+/* Red sign box, white letters */
+html[data-style="clean"] [data-sign="box"] {
+  font: 400 1.15rem/1 "Young Serif", serif; text-transform: uppercase; letter-spacing: .12em;
+  color: #fff; background: #bd3720; padding: .6rem .9rem;
+  border: 3px solid #fff; outline: 3px solid #bd3720; outline-offset: 0; border-radius: 2px;
+  text-shadow: 0 0 1px #fff;
+}
+/* Teal arrow, script lettering */
+html[data-style="clean"] [data-sign="arrow"] {
+  font: 400 1.55rem/1 "Yellowtail", cursive; color: #fff; background: #137a7f;
+  padding: .45rem 2.1rem .55rem 1rem;
+  clip-path: polygon(0 0, calc(100% - 1.4rem) 0, 100% 50%, calc(100% - 1.4rem) 100%, 0 100%, .55rem 50%);
+  filter: drop-shadow(4px 5px 0 rgba(0,0,0,.22)); box-shadow: none;
+}
+/* COLOR TV: every letter its own color, on black */
+html[data-style="clean"] [data-sign="colortv"] {
+  font: 800 1.05rem/1 "Figtree", sans-serif; text-transform: uppercase; letter-spacing: .06em;
+  background: #111; padding: .65rem .85rem; border: 3px solid #8d8d8d; border-radius: 4px;
+}
+html[data-style="clean"] .tv span:nth-child(6n+1) { color: #ff4b4b; }
+html[data-style="clean"] .tv span:nth-child(6n+2) { color: #ff9f1c; }
+html[data-style="clean"] .tv span:nth-child(6n+3) { color: #ffe14d; }
+html[data-style="clean"] .tv span:nth-child(6n+4) { color: #3ddc62; }
+html[data-style="clean"] .tv span:nth-child(6n+5) { color: #4aa8ff; }
+html[data-style="clean"] .tv span:nth-child(6n) { color: #ff6ad5; }
+html[data-style="clean"] .links a:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
 
 /* Sections, separated by sign-painter's pinstripes */
 html[data-style="clean"] .panel { padding-block: 2.25rem; }

@@ -40,6 +40,13 @@
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncToggle);
   syncToggle();
 
+  // --- COLOR TV lettering: one color per letter, same link text for screen readers ---
+  document.querySelectorAll('[data-sign="colortv"]').forEach(function (a) {
+    var text = a.textContent;
+    a.innerHTML = '<span class="sr-only">' + text + '</span><span class="tv" aria-hidden="true">' +
+      text.split('').map(function (ch) { return ch === ' ' ? ' ' : '<span>' + ch + '</span>'; }).join('') + '</span>';
+  });
+
   // --- The wink ---
   var logo = document.querySelector('.logo');
   function wink() {
