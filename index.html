@@ -1,7 +1,231 @@
-<!DOCTYPE html>
-<html>
-<body>
-<marquee><h1>Keal Jones Rules!</h1></marquee>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keal Jones</title>
+<meta name="description" content="Keal Jones builds design systems, frontend platforms and AI agents. Senior software engineer in Phoenix, AZ.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Keal Jones">
+<meta property="og:description" content="I build the foundations other engineers build on: design systems, frontend platforms and, lately, AI agents.">
+<meta property="og:url" content="https://kealjones.com/">
+<meta property="og:type" content="website">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:ital,wght@0,400..600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #ffffff;
+    --ink: #000000;
+    --soft: #5c5c5c;
+    --rule: #e2e2e2;
+    --mark: #ffd23f;   /* the second screenprint ink: selection, focus, highlight */
+    --link: #1f3cff;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #000000; --ink: #ffffff; --soft: #a8a8a8; --rule: #2a2a2a; --link: #8fa2ff;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #000000; --ink: #ffffff; --soft: #a8a8a8; --rule: #2a2a2a; --link: #8fa2ff;
+  }
 
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 1.0625rem/1.6 "Instrument Sans", system-ui, sans-serif;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background: var(--mark); color: #000; }
+  a { color: var(--link); text-underline-offset: .18em; text-decoration-thickness: .08em; }
+  a:hover { text-decoration-thickness: .16em; }
+  :focus-visible { outline: 3px solid var(--mark); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: 68rem; margin: 0 auto; padding: 0 clamp(1rem, 5vw, 3rem); }
+
+  /* Hero: the mark, big, and one sentence */
+  header.hero {
+    display: grid;
+    grid-template-columns: minmax(9rem, 22rem) 1fr;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: center;
+    padding-block: clamp(3rem, 10vw, 7rem) clamp(2.5rem, 6vw, 4.5rem);
+  }
+  .mark { width: 100%; height: auto; display: block; color: var(--ink); }
+  .mark-btn { all: unset; cursor: pointer; display: block; border-radius: 50%; }
+  .mark-btn:focus-visible { outline: 4px solid var(--mark); outline-offset: 6px; }
+  .mark .wink { transition: transform .14s ease-in; transform-origin: 158px 99px; }
+  .mark .open { opacity: 0; transition: opacity .1s ease-in; }
+  .mark-btn.blink .wink { transform: scaleX(.2); }
+  .mark-btn.blink .open { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) {
+    .mark .wink, .mark .open { transition: none; }
+  }
+
+  h1 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-variation-settings: "opsz" 96, "wdth" 75;
+    font-weight: 800;
+    font-size: clamp(3rem, 11vw, 7.5rem);
+    line-height: .88;
+    letter-spacing: -.02em;
+    margin: 0 0 1.25rem;
+  }
+  .lede {
+    font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+    line-height: 1.4;
+    max-width: 30ch;
+    margin: 0 0 1.75rem;
+  }
+  .links { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin: 0; padding: 0; list-style: none; font-weight: 600; }
+
+  /* Sections */
+  main section { border-top: 4px solid var(--ink); padding-block: clamp(2rem, 5vw, 3.5rem); }
+  .cols { display: grid; grid-template-columns: minmax(9rem, 22rem) 1fr; gap: clamp(1.5rem, 5vw, 4rem); }
+  h2 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-variation-settings: "opsz" 48, "wdth" 85;
+    font-weight: 700;
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    line-height: 1;
+    margin: 0;
+  }
+  h3 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-variation-settings: "opsz" 24, "wdth" 90;
+    font-weight: 700;
+    font-size: 1.35rem;
+    line-height: 1.15;
+    margin: 0 0 .35rem;
+  }
+  .entries { display: grid; gap: 2rem; max-width: 42rem; }
+  .entry p { margin: 0; }
+  .entry .meta { color: var(--soft); font-size: .95rem; margin-bottom: .4rem; }
+  .entry .go { margin-top: .5rem; font-weight: 600; }
+  .note { max-width: 42rem; margin: 0; }
+  .note + .note { margin-top: 1rem; }
+  strong { font-weight: 600; }
+
+  footer { border-top: 4px solid var(--ink); padding-block: 2rem 3rem; color: var(--soft); font-size: .95rem; }
+  footer p { margin: 0; max-width: 42rem; }
+
+  @media (max-width: 44rem) {
+    header.hero, .cols { grid-template-columns: 1fr; }
+    header.hero .mark-btn { width: min(12rem, 55vw); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <button class="mark-btn" type="button" aria-label="Make the logo wink">
+      <svg class="mark" viewBox="0 0 256 256" role="img" aria-hidden="true">
+        <circle cx="128" cy="128" r="114" fill="none" stroke="currentColor" stroke-width="20"/>
+        <circle cx="86" cy="99" r="17" fill="currentColor"/>
+        <rect class="wink" x="118" y="87" width="80" height="24" fill="currentColor"/>
+        <circle class="open" cx="158" cy="99" r="17" fill="currentColor"/>
+        <path d="M66 130 H196 A65 65 0 0 1 66 130 Z" fill="currentColor"/>
+      </svg>
+    </button>
+    <div>
+      <h1>Keal Jones</h1>
+      <p class="lede">I build the foundations other engineers build on: design systems, frontend platforms and, lately, AI agents.</p>
+      <ul class="links">
+        <li><a href="mailto:kealjones@gmail.com">kealjones@gmail.com</a></li>
+        <li><a href="https://github.com/KealJones">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/kealjones/">LinkedIn</a></li>
+        <li><a href="https://huggingface.co/kealjones">Hugging Face</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section aria-labelledby="work">
+      <div class="cols">
+        <h2 id="work">Work</h2>
+        <div class="entries">
+          <article class="entry">
+            <h3>Agent Studio</h3>
+            <p class="meta">Workiva, frontend technical lead, 2026</p>
+            <p>Led the frontend of Workiva's AI agent builder from an empty scaffold to its Amplify 2026 launch in under three months, through five design pivots. Along the way I fixed the hangs in the shared agent backend that every Workiva AI product runs on.</p>
+          </article>
+          <article class="entry">
+            <h3>Unify UI</h3>
+            <p class="meta">Workiva, senior software engineer, since 2018</p>
+            <p>The React and TypeScript design system behind Workiva's products, used by a 600+ engineer org. I drive its platform: component architecture, TypeScript-to-Dart code generation, and the build tooling. Highlights: a breaking v2 release rolled out org-wide, a 45% smaller minimal bundle, and builds that went from five minutes to two seconds.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="made">
+      <div class="cols">
+        <h2 id="made">Things I've made</h2>
+        <div class="entries">
+          <article class="entry">
+            <h3>Squiggle</h3>
+            <p>A private AI agent that runs entirely in your browser, on your own GPU. It remembers you through a small fact graph, finds earlier conversations with hybrid search, and syncs across your devices through a GitHub repo you own. It can commit code and open pull requests, and the safety rules live in code, not in the prompt.</p>
+            <p class="go"><a href="https://kealjones.com/squiggle/">Try Squiggle</a> or <a href="https://github.com/KealJones/squiggle">read the code</a></p>
+          </article>
+          <article class="entry">
+            <h3>Squiggle Small</h3>
+            <p>A 350M-parameter model I fine-tuned to use Squiggle's tools on a phone, plus a Gemma 4 pruned to a 0.6B core and healed by distillation. Training runs on rented GPUs, queued from a GitHub repo.</p>
+            <p class="go"><a href="https://huggingface.co/kealjones/squiggle-small">The model</a> or <a href="https://github.com/KealJones/lm-experiments">the experiments</a></p>
+          </article>
+          <article class="entry">
+            <h3>tp-parse</h3>
+            <p>A forgiving parser for toki pona, a language of about 120 words. It accepts 95.8% of a 114,000-sentence real-world corpus and checks all of it in about two seconds.</p>
+            <p class="go"><a href="https://kealjones.com/tp-parse/">Check a sentence</a></p>
+          </article>
+          <article class="entry">
+            <h3>Piké</h3>
+            <p>Finds the Pokémon GO keepers hiding in your storage by ranking each one, and its whole evolution line, for PvP.</p>
+            <p class="go"><a href="https://kealjones.com/pike/">Open Piké</a></p>
+          </article>
+          <article class="entry">
+            <h3>What was I doin'?</h3>
+            <p>A VS Code extension for people who context-switch a lot: it reads your uncommitted changes and tells you where you left off.</p>
+            <p class="go"><a href="https://github.com/KealJones/whatwasidoin-vscode">See it on GitHub</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="before">
+      <div class="cols">
+        <h2 id="before">Before all that</h2>
+        <div>
+          <p class="note">I started as a graphic designer and moved into code when my team needed a developer, building interactive ads at 24/7 Media and Xaxis in Los Angeles. Then I was CTO of Likey, a Scottsdale startup, before joining Workiva.</p>
+          <p class="note">For a few years I also ran Kealin.it, a tech-pun apparel brand. The winking face up top was its logo, and it's still me.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Phoenix, Arizona. Written by hand in HTML and CSS, no framework.</p>
+  </footer>
+
+</div>
+<script>
+  (function () {
+    var btn = document.querySelector('.mark-btn');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function wink() {
+      btn.classList.add('blink');
+      setTimeout(function () { btn.classList.remove('blink'); }, reduce ? 400 : 220);
+    }
+    btn.addEventListener('click', wink);
+    if (!reduce) setTimeout(wink, 900);
+  })();
+</script>
 </body>
 </html>
