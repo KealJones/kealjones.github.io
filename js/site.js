@@ -31,7 +31,12 @@
   function isDark() {
     return root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
   }
-  function syncToggle() { toggle.setAttribute('aria-pressed', String(isDark())); }
+  // The button names the mode it switches to: "Dark mode" in light, "Light mode" in dark.
+  function syncToggle() {
+    var dark = isDark();
+    toggle.textContent = dark ? 'Light mode' : 'Dark mode';
+    toggle.dataset.to = dark ? 'light' : 'dark';
+  }
   toggle.addEventListener('click', function () {
     root.dataset.theme = isDark() ? 'light' : 'dark';
     save('theme', root.dataset.theme);

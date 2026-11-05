@@ -45,10 +45,9 @@ html[data-style="clean"] .theme-toggle {
 }
 html[data-style="clean"] .picker button[aria-pressed="true"] { background: var(--red); color: var(--on-red); }
 html[data-style="clean"] .theme-toggle { border: 1.5px solid var(--ink); display: inline-flex; align-items: center; gap: .4rem; }
-/* A switch you can see: sun when off, a filled pill with a moon when on */
-html[data-style="clean"] .theme-toggle::before { content: "\2600\FE0E"; font-size: .95rem; line-height: 1; }
-html[data-style="clean"] .theme-toggle[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
-html[data-style="clean"] .theme-toggle[aria-pressed="true"]::before { content: "\263E\FE0E"; }
+/* The button shows where it takes you: a moon for dark, a sun for light */
+html[data-style="clean"] .theme-toggle[data-to="dark"]::before { content: "\263E\FE0E"; font-size: .95rem; line-height: 1; }
+html[data-style="clean"] .theme-toggle[data-to="light"]::before { content: "\2600\FE0E"; font-size: .95rem; line-height: 1; }
 
 /* Hero: the sign */
 html[data-style="clean"] .hero { text-align: center; padding-block: clamp(2.5rem, 8vw, 4.5rem) clamp(2rem, 6vw, 3.5rem); }
