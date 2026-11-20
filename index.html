@@ -74,17 +74,41 @@
   </header>
 
   <main>
-    <section class="panel" data-file="day_job.txt" aria-labelledby="work">
-      <h2 id="work">The Day Job</h2>
+    <section class="panel" data-file="work_history.txt" aria-labelledby="work">
+      <h2 id="work">Work</h2>
       <article class="entry">
         <h3 translate="no">Agent Studio</h3>
-        <p class="meta">Workiva, frontend technical lead, 2026</p>
-        <p>Led the frontend of Workiva's AI agent builder from an empty scaffold to its Amplify 2026 launch in under three months, through five design pivots. Along the way I fixed the hangs in the shared agent backend that every Workiva AI product runs on.</p>
+        <p class="meta">Workiva · frontend technical lead, on loan to the AI product org · Jun – Sep 2026</p>
+        <p>Led the frontend of Workiva's AI agent builder from an empty scaffold to its Amplify 2026 launch in under three months, through five design pivots.</p>
+        <ul>
+          <li>Primary author of the client: 48 merged pull requests, about 44% of the non-bot commits.</li>
+          <li>Moved it onto Workiva's shared AI client two weeks before launch, contributing the missing pieces upstream (net −4,900 lines). My status component now renders every status row in the company-wide assistant.</li>
+          <li>Proposed frontend-defined client tools for the agent backend, then built the schema generation, CI version guard and render contract that other teams' tool cards now reuse.</li>
+          <li>Traced early-access session hangs to their root causes in a shared Python agent service owned by another org, and shipped a four-PR fix series that made every agent on the platform more reliable.</li>
+        </ul>
       </article>
       <article class="entry">
         <h3 translate="no">Unify UI</h3>
-        <p class="meta">Workiva, senior software engineer, since 2018</p>
-        <p>The React and TypeScript design system behind Workiva's products, used by a 600+ engineer org. I drive its platform: component architecture, TypeScript-to-Dart code generation and the build tooling. Highlights: a breaking v2 release rolled out org-wide, a 45% smaller minimal bundle, and builds that went from five minutes to two seconds.</p>
+        <p class="meta">Workiva · senior software engineer since Dec 2019, software engineer from Jul 2018</p>
+        <p>The React and TypeScript design system behind Workiva's products, used by a 600+ engineer org. I drive its platform: component architecture, TypeScript-to-Dart code generation and the build tooling.</p>
+        <ul>
+          <li>Shipped Unify v2, a breaking release, with an org-wide automated rollout that removed years of deprecated APIs.</li>
+          <li>Led treeshaking from discovery to per-file output with a CI benchmark: the minimal consumer bundle went from 1.27&nbsp;MB to 705&nbsp;KB (−45%).</li>
+          <li>Took the build and Dart generation steps from five minutes to two seconds.</li>
+          <li>Audited the Dart decoupling epic and found it about three times larger than estimated. My plan became its 17-ticket roadmap, which unblocks React 19 for every consumer.</li>
+          <li>Wrote three architecture decision records in 2026; my review language was adopted in two company-wide frontend standards.</li>
+          <li>Reviewed 177 pull requests from 21 engineers in the past year, including security reviews.</li>
+        </ul>
+      </article>
+      <article class="entry">
+        <h3 translate="no">Likey</h3>
+        <p class="meta">Scottsdale startup · CTO, May 2016 – Jul 2018 · senior web developer, Oct 2015 – May 2016</p>
+        <p>Designed and built a social networking app with the CEO: a mobile-first Vue.js frontend, a Laravel REST API and the cloud infrastructure, with a team of four. The Scrum process I introduced raised team throughput 35% and made delivery dates 55.4% more accurate.</p>
+      </article>
+      <article class="entry">
+        <h3 translate="no">Xaxis</h3>
+        <p class="meta">Los Angeles, formerly 24/7 Media · lead interactive developer, 2014 – 2015 · interactive developer, 2013 – 2014 · digital designer, 2013</p>
+        <p>Started as a designer and moved into code when the team needed a developer. Built a system that served and reported on dynamic ads with 5,000+ variations, which made a multi-million-dollar contract possible, and a lightweight ad framework that cut development time 25% for clients including State Farm, Dyson, Bose and Revlon.</p>
       </article>
     </section>
 
@@ -143,7 +167,7 @@
 
     <section class="panel" data-file="about_me.doc" aria-labelledby="before">
       <h2 id="before">Previously</h2>
-      <p>I started as a graphic designer and moved into code when my team needed a developer, building interactive ads at 24/7 Media and Xaxis in Los Angeles. Then I was CTO of Likey, a Scottsdale startup, before joining Workiva.</p>
+      <p>I started as a graphic designer, with a B.S. in Graphic Design from The Art Institute of California – Los Angeles, before I ever wrote code for a living.</p>
       <p>For a few years I also ran <span translate="no">Kealin.it</span>, a tech-pun apparel brand. The winking face up top was its logo, and it's still me.</p>
     </section>
   </main>

@@ -23,6 +23,8 @@ p { margin: 0 0 .6rem; }
 .links { display: flex; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
 .links a, .go a { display: inline-block; min-block-size: 24px; padding-block: .15rem; overflow-wrap: anywhere; }
 .entry { min-inline-size: 0; }
+.entry ul { margin: 0; padding-inline-start: 1.25rem; }
+.entry li + li { margin-block-start: .3rem; }
 
 /* Decoration that only the 1999 look uses */
 .retro-only { display: none; }
