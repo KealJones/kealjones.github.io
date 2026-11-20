@@ -120,7 +120,7 @@
       </article>
       <article class="entry" data-new>
         <h3 translate="no">Tilde</h3>
-        <p>A WebGPU engine I'm building for Squiggle's phone model, because the off-the-shelf ones kept getting the tab killed. iPhone Safari gives a whole tab about 1.9&nbsp;GB and drops the GPU if one command runs past about three seconds, so Tilde streams weights in tensor by tensor, counts every byte it holds, and splits the work so it never trips the watchdog. On an iPhone 16 it runs Liquid AI's LFM3 1.7B at 12.6 tokens a second, matches llama.cpp token for token, and was the only engine in my tests to finish every prompt size without patches, reading prompts 1.6–1.75× faster than WebLLM.</p>
+        <p>A WebGPU engine I'm building for Squiggle's phone model, because the off-the-shelf ones kept getting the tab killed. iPhone Safari gives a whole tab about 1.9&nbsp;GB and drops the GPU if one command runs past about three seconds, so Tilde streams weights in tensor by tensor, counts every byte it holds, and splits the work so it never trips the watchdog. On an iPhone 16 it runs Liquid AI's LFM3 1.7B at about 12 tokens a second, LFM3 Omni 2B with pictures, video, audio and its own voice, and Qwen3 0.6B. Its output matches llama.cpp token for token, and it was the only engine in my tests to finish every prompt size without patches, reading prompts 1.6–1.75× faster than WebLLM.</p>
         <p class="go"><a data-project href="https://github.com/KealJones/tilde">Read the code and benchmarks</a></p>
       </article>
       <article class="entry" data-new>
