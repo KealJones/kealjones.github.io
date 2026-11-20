@@ -79,7 +79,7 @@
       <article class="entry">
         <h3 translate="no">Agent Studio</h3>
         <p class="meta">Workiva · frontend technical lead, on loan to the AI product org · Jun – Sep 2026</p>
-        <p>Led the frontend of Workiva's AI agent builder, announced at Amplify 2026, from an empty scaffold to launch in under three months, through five design pivots.</p>
+        <p>Led the frontend of Workiva's AI agent builder from an empty scaffold to its customer early-access launch at Amplify 2026 in under three months, through five design pivots.</p>
         <ul>
           <li>Primary author of the client.</li>
           <li>Moved it onto the company's shared AI client two weeks before launch, building the missing pieces upstream instead of keeping a fork. My status component now renders the status rows in the company-wide assistant too.</li>
@@ -94,7 +94,7 @@
         <ul>
           <li>Shipped Unify v2, a breaking release, with an org-wide automated rollout that removed years of deprecated APIs.</li>
           <li>Led treeshaking from discovery to per-file output with a CI benchmark: the minimal consumer bundle went from 1.27&nbsp;MB to 705&nbsp;KB (−45%).</li>
-          <li>Took the build and Dart generation steps from five minutes to two seconds.</li>
+          <li>Rewrote the build pipeline: fresh builds went from over five minutes to about 20 seconds and local rebuilds from 95 seconds to two, across 64,000+ CI runs.</li>
           <li>Audited the Dart decoupling epic and found it about three times larger than estimated. My plan became its 17-ticket roadmap, which unblocks React 19 for every consumer.</li>
           <li>Wrote three architecture decision records in 2026; my review language was adopted in two company-wide frontend standards.</li>
           <li>Reviewed 177 pull requests from 21 engineers in the past year, including security reviews.</li>
@@ -103,7 +103,7 @@
       <article class="entry">
         <h3 translate="no">Likey</h3>
         <p class="meta">Scottsdale startup · CTO, May 2016 – Jul 2018 · senior web developer, Oct 2015 – May 2016</p>
-        <p>Designed and built a social networking app with the CEO: a mobile-first Vue.js frontend, a Laravel REST API and the cloud infrastructure, with a team of four. The Scrum process I introduced raised team throughput 35% and made delivery dates 55.4% more accurate.</p>
+        <p>Designed and built a social networking app with the CEO: a mobile-first Vue.js frontend, a Laravel REST API and the cloud infrastructure, with a team of four. The Scrum process I introduced raised team throughput 35% and made delivery dates over 50% more accurate.</p>
       </article>
       <article class="entry">
         <h3 translate="no">Xaxis</h3>
@@ -121,7 +121,7 @@
       </article>
       <article class="entry" data-new>
         <h3 translate="no">Tilde</h3>
-        <p>A WebGPU engine I'm building for Squiggle's phone model, because the off-the-shelf ones kept getting the tab killed. iPhone Safari gives a whole tab about 1.9&nbsp;GB and drops the GPU if one command runs past about three seconds, so Tilde streams weights in tensor by tensor, counts every byte it holds, and splits the work so it never trips the watchdog. On an iPhone 16 it runs Liquid AI's LFM3 1.7B at 12.6 tokens a second, and its output matches llama.cpp token for token.</p>
+        <p>A WebGPU engine I'm building for Squiggle's phone model, because the off-the-shelf ones kept getting the tab killed. iPhone Safari gives a whole tab about 1.9&nbsp;GB and drops the GPU if one command runs past about three seconds, so Tilde streams weights in tensor by tensor, counts every byte it holds, and splits the work so it never trips the watchdog. On an iPhone 16 it runs Liquid AI's LFM3 1.7B at 12.6 tokens a second, matches llama.cpp token for token, and was the only engine in my tests to finish every prompt size without patches, reading prompts 1.6–1.75× faster than WebLLM.</p>
         <p class="go"><a data-project href="https://github.com/KealJones/tilde">Read the code and benchmarks</a></p>
       </article>
       <article class="entry" data-new>
