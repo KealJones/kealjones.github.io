@@ -1,0 +1,4 @@
+node_modules/
+*.woff2
+mark.svg
+package-lock.json

@@ -1,0 +1,12 @@
+{
+  "name": "kealjones-resume",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node build.mjs" },
+  "devDependencies": {
+    "@fontsource-variable/figtree": "5.1.1",
+    "@fontsource/yellowtail": "5.1.0",
+    "@fontsource/young-serif": "5.1.0",
+    "playwright": "1.63.0"
+  }
+}

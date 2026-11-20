@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Keal Jones - Resume</title>
+<style>
+  @font-face { font-family: "Yellowtail"; src: url(yt.woff2) format("woff2"); }
+  @font-face { font-family: "Young Serif"; src: url(ys.woff2) format("woff2"); }
+  @font-face { font-family: "Figtree"; src: url(ft.woff2) format("woff2"); font-weight: 300 900; }
+  @font-face { font-family: "Figtree"; src: url(fti.woff2) format("woff2"); font-weight: 300 900; font-style: italic; }
+  @page { size: Letter; margin: .45in .55in .45in; }
+  :root { --ink: #1e1a16; --soft: #5d554c; --red: #c4122f; --mustard: #e3a92b; --rule: #e2d8c6; }
+  * { box-sizing: border-box; }
+  body { margin: 0; color: var(--ink); font: 400 9.4pt/1.38 "Figtree", sans-serif; }
+  a { color: inherit; text-decoration: none; }
+
+  header { text-align: center; margin-block-end: 10pt; }
+  .mark { inline-size: 34pt; block-size: 34pt; display: block; margin: 0 auto 3pt; }
+  h1 { font: 400 40pt/1 "Yellowtail", cursive; color: var(--red); margin: 0; text-shadow: 1.6pt 1.6pt 0 var(--mustard); }
+  .role { font: 400 10.5pt/1.3 "Young Serif", serif; margin: 6pt 0 2pt; }
+  .tagline { color: var(--soft); font-style: italic; margin: 0 0 8pt; }
+  .signs { display: flex; flex-wrap: wrap; justify-content: center; gap: 6pt 9pt; margin: 0; padding: 0; list-style: none; font-weight: 700; }
+  .signs a { display: inline-block; padding: 3.5pt 7pt; line-height: 1.1; }
+  .board { color: var(--red); letter-spacing: .02em; background: #fffdf6; border: 2pt solid #2a2622; font-size: 8.4pt; }
+  .box { color: #fff; background: #bd3720; border: 1.5pt solid #fff; outline: 1.5pt solid #bd3720; letter-spacing: .02em; font-weight: 800; font-size: 8.4pt; }
+  .arrow { color: #fff; background: #137a7f; font: 400 12pt/1 "Yellowtail", cursive; padding: 2.5pt 16pt 3pt 9pt !important;
+    clip-path: polygon(0 0, calc(100% - 9pt) 0, 100% 50%, calc(100% - 9pt) 100%, 0 100%, 4pt 50%); }
+  .tv { background: #111; border: 1.5pt solid #8d8d8d; border-radius: 2pt; font-weight: 800; font-size: 8.4pt; letter-spacing: .03em; }
+  .tv .c1 { color: #ff4b4b; } .tv .c2 { color: #ff9f1c; } .tv .c3 { color: #ffe14d; } .tv .c4 { color: #3ddc62; } .tv .c5 { color: #4aa8ff; } .tv .c6 { color: #ff6ad5; }
+  .where { color: var(--soft); font-weight: 400; align-self: center; }
+
+  h2 { font: 400 12.5pt/1.1 "Young Serif", serif; margin: 11pt 0 5pt; }
+  h2::after { content: ""; display: block; inline-size: 26pt; block-size: 2pt; margin-block-start: 3pt; background: var(--red); box-shadow: 0 3.5pt 0 -.5pt var(--mustard); }
+  .job { margin-block-end: 6pt; break-inside: avoid; }
+  .job-head { display: flex; justify-content: space-between; gap: 10pt; align-items: baseline; }
+  h3 { font: 700 10pt/1.25 "Figtree", sans-serif; margin: 0; }
+  .when { color: var(--soft); white-space: nowrap; font-size: 8.8pt; }
+  .sub { font-style: italic; color: var(--soft); margin: 1pt 0 2pt; }
+  ul.b { margin: 2pt 0 0; padding-inline-start: 11pt; }
+  ul.b li { margin-block-end: 1.6pt; }
+  ul.b li::marker { color: var(--red); }
+  .skills p { margin: 0 0 2pt; }
+  .skills strong, .edu strong { font-weight: 700; }
+  .edu p { margin: 0 0 1.5pt; }
+</style>
+</head>
+<body>
+<header>
+  <img class="mark" src="mark.svg" alt="">
+  <h1>Keal Jones</h1>
+  <p class="role">Senior Software Engineer, Frontend Platform &amp; AI Agent Product UI</p>
+  <p class="tagline">I craft the foundations other engineers build on: design systems, frontend platforms and lately, the layer where AI agents meet people.</p>
+  <ul class="signs">
+    <li><a class="board" href="mailto:kealjones@gmail.com">kealjones@gmail.com</a></li>
+    <li><a class="box" href="https://kealjones.com">kealjones.com</a></li>
+    <li><a class="arrow" href="https://www.linkedin.com/in/kealjones/">linkedin.com/in/kealjones</a></li>
+    <li><a class="tv" href="https://github.com/KealJones"><span class="c1">g</span><span class="c2">i</span><span class="c3">t</span><span class="c4">h</span><span class="c5">u</span><span class="c6">b</span><span class="c1">.</span><span class="c2">c</span><span class="c3">o</span><span class="c4">m</span><span class="c5">/</span><span class="c6">K</span><span class="c1">e</span><span class="c2">a</span><span class="c3">l</span><span class="c4">J</span><span class="c5">o</span><span class="c6">n</span><span class="c1">e</span><span class="c2">s</span></a></li>
+    <li class="where">Phoenix, AZ</li>
+  </ul>
+</header>
+
+<h2>Experience</h2>
+
+<div class="job">
+  <div class="job-head"><h3>Workiva · Senior Software Engineer, Frontend Frameworks - Design</h3><span class="when">Dec 2019 – present</span></div>
+  <p class="sub">Software Engineer, Jul 2018 – Dec 2019</p>
+  <p class="sub" style="margin-block-start:4pt">Frontend Technical Lead, Agent Studio (four-month loan to Workiva's AI product org), Jun – Sep 2026</p>
+  <ul class="b">
+    <li>Led the frontend of Agent Studio, Workiva's AI agent builder, from scaffold to its customer early-access launch at Amplify 2026 (Sep 14–16), through five design pivots.</li>
+    <li>Moved the client onto the company's shared AI client two weeks before launch, building the missing pieces upstream instead of forking; my status component now renders the status rows in the company-wide assistant.</li>
+    <li>Proposed frontend-defined client tools for the agent backend, then built the schema generation, CI version guard and render contract that other teams' tool cards now reuse.</li>
+    <li>Traced early-access session hangs (parallel tool calls, mid-approval disconnects) to root causes in another team's Python agent service, and shipped the human-in-the-loop fixes that made every agent on the platform more reliable.</li>
+  </ul>
+  <p class="sub" style="margin-block-start:5pt">Design system and frontend platform</p>
+  <ul class="b">
+    <li>Primary technical driver of Unify UI, the React/TypeScript design system (on MUI) used by a 600+ engineer org: component architecture, TypeScript→Dart code generation, build and package tooling.</li>
+    <li>Shipped Unify v2, a breaking major release, with an org-wide automated rollout that removed years of deprecated APIs.</li>
+    <li>Led treeshaking from discovery to architecture decision to per-file output with a CI benchmark: minimal consumer bundle 1.27 MB → 705 KB (−45%).</li>
+    <li>Rewrote the design system's build pipeline, cutting fresh builds from over 5 minutes to about 20 seconds and local rebuilds from 95 seconds to 2, saving thousands of hours of build time across 64,000+ CI runs.</li>
+    <li>Wrote three architecture decision records in 2026; my review language was adopted verbatim in two company-wide frontend standards (library build output, ESM-only package exports).</li>
+    <li>Audited the Dart decoupling epic and found it ~3× larger than estimated; my plan became its 17-ticket roadmap, which unblocks React 19 for every consumer. Shipped its production cutover matching production value by value, with a pre-built rollback.</li>
+    <li>Fixed a long-standing Lighthouse icon-font failure with a 324-byte inline skeleton font after measuring ten approaches: audit passes, zero layout shift.</li>
+    <li>Reviewed 177 PRs from 21 engineers in the past year, including security reviews of an internal MCP server; merged 116 PRs across 10 repositories in 2026.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head"><h3>Likey · Chief Technology Officer, Scottsdale, AZ</h3><span class="when">Oct 2015 – Jun 2018</span></div>
+  <p class="sub">CTO, May 2016 – Jun 2018 · Senior Web Developer, Oct 2015 – May 2016</p>
+  <ul class="b">
+    <li>Designed and built a social networking app with the CEO: mobile-first Vue.js frontend, PHP/Laravel REST API, and cloud infrastructure; led a team of four.</li>
+    <li>Introduced an Agile Scrum process that raised team throughput 35% and improved delivery-date accuracy by more than half.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head"><h3>Xaxis (formerly 24/7 Media) · Lead Interactive Developer, Los Angeles, CA</h3><span class="when">Feb 2013 – Sep 2015</span></div>
+  <p class="sub">Lead Interactive Developer, Jun 2014 – Sep 2015 · Interactive Developer, Aug 2013 – Jun 2014 · Designer, Feb – Aug 2013</p>
+  <ul class="b">
+    <li>Built a system to serve and report on dynamic creative with 5,000+ variations, which made a multi-million-dollar contract possible.</li>
+    <li>Built a lightweight JavaScript ad framework that cut product development time 25%; clients included State Farm, Dyson, Bose and Revlon.</li>
+    <li>Moved from design into development when the team needed a developer, and after the merger pitched pivoting our team into Xaxis Ad Labs.</li>
+  </ul>
+</div>
+
+<h2>Personal projects</h2>
+<ul class="b">
+  <li><strong><a href="https://kealjones.com/squiggle/">Squiggle</a></strong>: a private AI agent that runs a small model on your own GPU in the browser, including iPhone Safari. Big requests run as a plan of short, fresh turns, and context modes hand the model a retrieved context each turn instead of the whole chat, with hybrid BM25 + embedding retrieval inside the agent loop. Chats and memory sync through a GitHub repo the user owns; the agent can commit and open PRs, with safety enforced in code.</li>
+  <li><strong><a href="https://github.com/KealJones/tilde">Tilde</a></strong>: a WebGPU engine built to run small language models inside iPhone Safari's ~1.9 GB tab limit and ~3-second GPU watchdog. On an iPhone 16 it was the only runtime tested (against WebLLM, wllama, transformers.js and LiteRT-LM) to finish every prompt size without patches, and it reads LFM3 1.7B prompts 1.6–1.75× faster than WebLLM. Runs LFM3 1.7B, LFM3 Omni 2B (vision, audio in and voice out, each swapped in on demand) and Qwen3 0.6B; streams weights tensor by tensor, counts every GPU byte and matches llama.cpp token for token.</li>
+  <li><strong><a href="https://github.com/KealJones/apotheosis">Apotheosis</a></strong>: a local-first Mac app that builds a searchable memory of my own workday from screen OCR and meeting transcripts, with privacy blocklists and secret filtering before anything is saved. Agents query it through a local MCP server. In daily use for over a year.</li>
+  <li><strong><a href="https://kealjones.com/lm-experiments/">lm-experiments</a></strong>: 30+ written-up experiments with interactive demo pages, failures included. Context packets: a ~360-word packet did as well as the full 5,400-word history with Claude models answering (12/12 vs 11/12). Fine-tuned Squiggle Small (LFM2.5 350M) for Squiggle's tool format and called it a no-go against bars set before training.</li>
+</ul>
+
+<h2>Skills</h2>
+<div class="skills">
+  <p><strong>Languages:</strong> TypeScript, JavaScript, Python, Dart, Rust (side projects), SQL basics</p>
+  <p><strong>Frontend:</strong> React, design systems, component architecture, MUI, Storybook, performance and bundle size, accessibility</p>
+  <p><strong>AI and agents:</strong> LLM agent harnesses, tool calling and human-in-the-loop approvals, MCP servers, memory and retrieval (BM25, embeddings), context design, small-model fine-tuning and distillation experiments, WebGPU and on-device inference</p>
+  <p><strong>Build and platform:</strong> esbuild, tsdown, Vite, Vitest, Playwright, pnpm, CI/CD, code generation, Cloudflare Workers</p>
+</div>
+
+<h2>Education</h2>
+<div class="edu">
+  <p><strong>B.S. Graphic Design (Honors)</strong>, The Art Institute of California – Los Angeles, 2012</p>
+  <p>Computer Science studies, University of California, Santa Barbara, 2008 – 2009</p>
+</div>
+</body>
+</html>
